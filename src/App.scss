@@ -1,0 +1,9 @@
+@import './styles/variables.scss';
+
+.App {
+  text-align: center;
+  background-color: $color-background;
+  height: 100vh;
+  color: $text-color-default;
+}
+

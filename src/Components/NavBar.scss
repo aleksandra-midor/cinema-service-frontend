@@ -1,0 +1,23 @@
+@import '../styles/variables.scss'; 
+
+.NavBar {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+  background: $color-primary;
+  color: white;
+
+  .NavBar_List {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    // text-transform: capitalize;
+
+    li{
+      padding: 0;
+      &+li {
+        margin-left: 1rem;
+      }
+    }
+  }
+}
