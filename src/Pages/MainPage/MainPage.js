@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from '../../Components/Image/Image';
+import MovieSlider from '../../Components/MovieSlider/MovieSlider';
 import movies from '../../data/top-rated-movies-01.json' 
 
 function MainPage() {
@@ -9,7 +9,7 @@ function MainPage() {
     <header className="MainPage_Header">
     <h1>Cinema tickets</h1>
   </header>
-  <Image src={movies[3].posterurl} title={movies[3].title}/>
+  <MovieSlider count={3} movies={movies}/>
   </main>
   )
 }
