@@ -1,6 +1,7 @@
 [
     {
         "title": "Nyckeln till frihet",
+        "id": "movie",
         "year": "1994",
         "genres": [
             "Crime",
@@ -55,6 +56,7 @@
     },
     {
         "title": "Gudfadern",
+        "id": "movie",
         "year": "1972",
         "genres": [
             "Crime",
@@ -109,6 +111,7 @@
     },
     {
         "title": "Gudfadern del II",
+        "id": "movie",
         "year": "1974",
         "genres": [
             "Crime",
@@ -163,6 +166,7 @@
     },
     {
         "title": "The Dark Knight",
+        "id": "TheDarkKnight",
         "year": "2008",
         "genres": [
             "Action",
@@ -217,7 +221,8 @@
         "posterurl": "https://images-na.ssl-images-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_SY500_CR0,0,337,500_AL_.jpg"
     },
     {
-        "title": "12 edsvurna m\u00e4n",
+        "title": "12 edsvurna mon",
+        "id": "12edsvurnaMon",
         "year": "1957",
         "genres": [
             "Crime",
@@ -272,6 +277,7 @@
     },
     {
         "title": "Schindler's List",
+        "id": "SchindlerList",
         "year": "1993",
         "genres": [
             "Biography",
@@ -327,6 +333,7 @@
     },
     {
         "title": "Pulp Fiction",
+        "id": "PulpFiction",
         "year": "1994",
         "genres": [
             "Crime",
@@ -381,6 +388,7 @@
     },
     {
         "title": "Sagan om konungens \u00e5terkomst",
+        "id": "movie",
         "year": "2003",
         "genres": [
             "Adventure",
@@ -436,6 +444,7 @@
     },
     {
         "title": "Den gode, den onde, den fule",
+        "id": "movie",
         "year": "1966",
         "genres": [
             "Western"
@@ -489,6 +498,7 @@
     },
     {
         "title": "Fight Club",
+        "id": "movie",
         "year": "1999",
         "genres": [
             "Drama"
@@ -542,6 +552,7 @@
     },
     {
         "title": "Sagan om ringen: H\u00e4rskarringen",
+        "id": "movie",
         "year": "2001",
         "genres": [
             "Adventure",
@@ -597,6 +608,7 @@
     },
     {
         "title": "Rymdimperiet sl\u00e5r tillbaka",
+        "id": "movie",
         "year": "1980",
         "genres": [
             "Action",
@@ -652,6 +664,7 @@
     },
     {
         "title": "Forrest Gump",
+        "id": "movie",
         "year": "1994",
         "genres": [
             "Comedy",
@@ -707,6 +720,7 @@
     },
     {
         "title": "Inception",
+        "id": "movie",
         "year": "2010",
         "genres": [
             "Action",
@@ -762,6 +776,7 @@
     },
     {
         "title": "Sagan om de tv\u00e5 tornen",
+        "id": "movie",
         "year": "2002",
         "genres": [
             "Adventure",
@@ -817,6 +832,7 @@
     },
     {
         "title": "G\u00f6kboet",
+        "id": "movie",
         "year": "1975",
         "genres": [
             "Drama"
@@ -870,6 +886,7 @@
     },
     {
         "title": "Maffiabr\u00f6der",
+        "id": "movie",
         "year": "1990",
         "genres": [
             "Biography",
@@ -925,6 +942,7 @@
     },
     {
         "title": "Matrix",
+        "id": "movie",
         "year": "1999",
         "genres": [
             "Action",
@@ -979,6 +997,7 @@
     },
     {
         "title": "De sju samurajerna",
+        "id": "movie",
         "year": "1954",
         "genres": [
             "Adventure",
@@ -1033,6 +1052,7 @@
     },
     {
         "title": "Stj\u00e4rnornas krig",
+        "id": "movie",
         "year": "1977",
         "genres": [
             "Action",
@@ -1088,6 +1108,7 @@
     },
     {
         "title": "Guds stad",
+        "id": "movie",
         "year": "2002",
         "genres": [
             "Crime",
@@ -1142,6 +1163,7 @@
     },
     {
         "title": "Seven",
+        "id": "movie",
         "year": "1995",
         "genres": [
             "Crime",
@@ -1197,6 +1219,7 @@
     },
     {
         "title": "N\u00e4r lammen tystnar",
+        "id": "movie",
         "year": "1991",
         "genres": [
             "Crime",
@@ -1252,6 +1275,7 @@
     },
     {
         "title": "Livet \u00e4r underbart",
+        "id": "movie",
         "year": "1946",
         "genres": [
             "Drama",
@@ -1307,6 +1331,7 @@
     },
     {
         "title": "De misst\u00e4nkta",
+        "id": "movie",
         "year": "1995",
         "genres": [
             "Crime",
@@ -1362,6 +1387,7 @@
     },
     {
         "title": "Livet \u00e4r underbart",
+        "id": "movie",
         "year": "1997",
         "genres": [
             "Comedy",
@@ -1417,6 +1443,7 @@
     },
     {
         "title": "L\u00e9on",
+        "id": "movie",
         "year": "1994",
         "genres": [
             "Crime",
@@ -1472,6 +1499,7 @@
     },
     {
         "title": "Spirited Away",
+        "id": "movie",
         "year": "2001",
         "genres": [
             "Animation",
@@ -1527,6 +1555,7 @@
     },
     {
         "title": "R\u00e4dda menige Ryan",
+        "id": "movie",
         "year": "1998",
         "genres": [
             "Drama",
@@ -1581,6 +1610,7 @@
     },
     {
         "title": "Harmonica - En h\u00e4mnare",
+        "id": "movie",
         "year": "1968",
         "genres": [
             "Western"
@@ -1634,6 +1664,7 @@
     },
     {
         "title": "American History X",
+        "id": "movie",
         "year": "1998",
         "genres": [
             "Crime",
@@ -1688,6 +1719,7 @@
     },
     {
         "title": "Interstellar",
+        "id": "movie",
         "year": "2014",
         "genres": [
             "Adventure",
@@ -1743,6 +1775,7 @@
     },
     {
         "title": "Casablanca",
+        "id": "movie",
         "year": "1942",
         "genres": [
             "Drama",
@@ -1798,6 +1831,7 @@
     },
     {
         "title": "Psycho",
+        "id": "movie",
         "year": "1960",
         "genres": [
             "Horror",
@@ -1853,6 +1887,7 @@
     },
     {
         "title": "Stadens ljus",
+        "id": "movie",
         "year": "1931",
         "genres": [
             "Comedy",
@@ -1908,6 +1943,7 @@
     },
     {
         "title": "Den gr\u00f6na milen",
+        "id": "movie",
         "year": "1999",
         "genres": [
             "Crime",
@@ -1963,6 +1999,7 @@
     },
     {
         "title": "En ov\u00e4ntad v\u00e4nskap",
+        "id": "movie",
         "year": "2011",
         "genres": [
             "Biography",
@@ -2018,6 +2055,7 @@
     },
     {
         "title": "Moderna tider",
+        "id": "movie",
         "year": "1936",
         "genres": [
             "Comedy",
@@ -2073,6 +2111,7 @@
     },
     {
         "title": "Jakten p\u00e5 den f\u00f6rsvunna skatten",
+        "id": "movie",
         "year": "1981",
         "genres": [
             "Action",
@@ -2127,6 +2166,7 @@
     },
     {
         "title": "F\u00f6nstret \u00e5t g\u00e5rden",
+        "id": "movie",
         "year": "1954",
         "genres": [
             "Mystery",
@@ -2181,6 +2221,7 @@
     },
     {
         "title": "The Pianist",
+        "id": "movie",
         "year": "2002",
         "genres": [
             "Biography",
@@ -2236,6 +2277,7 @@
     },
     {
         "title": "The Departed",
+        "id": "movie",
         "year": "2006",
         "genres": [
             "Crime",
@@ -2291,6 +2333,7 @@
     },
     {
         "title": "Terminator 2 - Domedagen",
+        "id": "movie",
         "year": "1991",
         "genres": [
             "Action",
@@ -2346,6 +2389,7 @@
     },
     {
         "title": "Tillbaka till framtiden",
+        "id": "movie",
         "year": "1985",
         "genres": [
             "Adventure",
@@ -2401,6 +2445,7 @@
     },
     {
         "title": "Whiplash",
+        "id": "movie",
         "year": "2014",
         "genres": [
             "Drama",
@@ -2455,6 +2500,7 @@
     },
     {
         "title": "Gladiator",
+        "id": "movie",
         "year": "2000",
         "genres": [
             "Action",
@@ -2510,6 +2556,7 @@
     },
     {
         "title": "Memento",
+        "id": "movie",
         "year": "2000",
         "genres": [
             "Mystery",
@@ -2564,6 +2611,7 @@
     },
     {
         "title": "Apocalypse",
+        "id": "movie",
         "year": "1979",
         "genres": [
             "Drama",
@@ -2618,6 +2666,7 @@
     },
     {
         "title": "The Prestige",
+        "id": "movie",
         "year": "2006",
         "genres": [
             "Drama",
@@ -2673,6 +2722,7 @@
     },
     {
         "title": "Lejonkungen",
+        "id": "movie",
         "year": "1994",
         "genres": [
             "Animation",
@@ -2728,6 +2778,7 @@
     },
     {
         "title": "Alien",
+        "id": "movie",
         "year": "1979",
         "genres": [
             "Horror",
@@ -2782,6 +2833,7 @@
     },
     {
         "title": "Dr. Strangelove eller: Hur jag slutade \u00e4ngslas och l\u00e4rde mig \u00e4lska bomben",
+        "id": "movie",
         "year": "1964",
         "genres": [
             "Comedy"
@@ -2835,6 +2887,7 @@
     },
     {
         "title": "Sunset Boulevard",
+        "id": "movie",
         "year": "1950",
         "genres": [
             "Drama",
@@ -2889,6 +2942,7 @@
     },
     {
         "title": "Diktatorn",
+        "id": "movie",
         "year": "1940",
         "genres": [
             "Comedy",
@@ -2944,6 +2998,7 @@
     },
     {
         "title": "Cinema Paradiso",
+        "id": "movie",
         "year": "1988",
         "genres": [
             "Drama"
@@ -2997,6 +3052,7 @@
     },
     {
         "title": "De andras liv",
+        "id": "movie",
         "year": "2006",
         "genres": [
             "Drama",
@@ -3051,6 +3107,7 @@
     },
     {
         "title": "Eldflugornas grav",
+        "id": "movie",
         "year": "1988",
         "genres": [
             "Animation",
@@ -3106,6 +3163,7 @@
     },
     {
         "title": "\u00c4rans v\u00e4g",
+        "id": "movie",
         "year": "1957",
         "genres": [
             "Drama",
@@ -3160,6 +3218,7 @@
     },
     {
         "title": "Django Unchained",
+        "id": "movie",
         "year": "2012",
         "genres": [
             "Drama",
@@ -3214,6 +3273,7 @@
     },
     {
         "title": "The Shining",
+        "id": "movie",
         "year": "1980",
         "genres": [
             "Drama",
@@ -3268,6 +3328,7 @@
     },
     {
         "title": "La La Land",
+        "id": "movie",
         "year": "2016",
         "genres": [
             "Comedy",
@@ -3323,6 +3384,7 @@
     },
     {
         "title": "Wall-E",
+        "id": "movie",
         "year": "2008",
         "genres": [
             "Animation",
@@ -3378,6 +3440,7 @@
     },
     {
         "title": "American Beauty",
+        "id": "movie",
         "year": "1999",
         "genres": [
             "Drama",
@@ -3432,6 +3495,7 @@
     },
     {
         "title": "The Dark Knight Rises",
+        "id": "movie",
         "year": "2012",
         "genres": [
             "Action",
@@ -3486,6 +3550,7 @@
     },
     {
         "title": "Prinsessan Mononoke",
+        "id": "movie",
         "year": "1997",
         "genres": [
             "Animation",
@@ -3541,6 +3606,7 @@
     },
     {
         "title": "Aliens - \u00c5terkomsten",
+        "id": "movie",
         "year": "1986",
         "genres": [
             "Action",
@@ -3596,6 +3662,7 @@
     },
     {
         "title": "Old Boy - H\u00e4mnden",
+        "id": "movie",
         "year": "2003",
         "genres": [
             "Drama",
@@ -3651,6 +3718,7 @@
     },
     {
         "title": "Once Upon a Time in America",
+        "id": "movie",
         "year": "1984",
         "genres": [
             "Crime",
@@ -3705,6 +3773,7 @@
     },
     {
         "title": "En sensation",
+        "id": "movie",
         "year": "1941",
         "genres": [
             "Drama",
@@ -3759,6 +3828,7 @@
     },
     {
         "title": "Ub\u00e5ten",
+        "id": "movie",
         "year": "1981",
         "genres": [
             "Adventure",
@@ -3814,6 +3884,7 @@
     },
     {
         "title": "\u00c5klagarens vittne",
+        "id": "movie",
         "year": "1957",
         "genres": [
             "Crime",
@@ -3869,6 +3940,7 @@
     },
     {
         "title": "I sista minuten",
+        "id": "movie",
         "year": "1959",
         "genres": [
             "Action",
@@ -3924,6 +3996,7 @@
     },
     {
         "title": "Studie i brott",
+        "id": "movie",
         "year": "1958",
         "genres": [
             "Mystery",
@@ -3979,6 +4052,7 @@
     },
     {
         "title": "Jedins \u00e5terkomst",
+        "id": "movie",
         "year": "1983",
         "genres": [
             "Action",
@@ -4034,6 +4108,7 @@
     },
     {
         "title": "De h\u00e4nsynsl\u00f6sa",
+        "id": "movie",
         "year": "1992",
         "genres": [
             "Crime",
@@ -4089,6 +4164,7 @@
     },
     {
         "title": "M",
+        "id": "movie",
         "year": "1931",
         "genres": [
             "Crime",
@@ -4144,6 +4220,7 @@
     },
     {
         "title": "Braveheart",
+        "id": "movie",
         "year": "1995",
         "genres": [
             "Biography",
@@ -4199,6 +4276,7 @@
     },
     {
         "title": "Requiem for a Dream",
+        "id": "movie",
         "year": "2000",
         "genres": [
             "Drama"
@@ -4252,6 +4330,7 @@
     },
     {
         "title": "Amelie fr\u00e5n Montmartre",
+        "id": "movie",
         "year": "2001",
         "genres": [
             "Comedy",
@@ -4306,6 +4385,7 @@
     },
     {
         "title": "Clockwork Orange",
+        "id": "movie",
         "year": "1971",
         "genres": [
             "Crime",
@@ -4361,6 +4441,7 @@
     },
     {
         "title": "Taxi Driver",
+        "id": "movie",
         "year": "1976",
         "genres": [
             "Crime",
@@ -4415,6 +4496,7 @@
     },
     {
         "title": "Taare Zameen Par",
+        "id": "movie",
         "year": "2007",
         "genres": [
             "Drama",
@@ -4470,6 +4552,7 @@
     },
     {
         "title": "Lawrence av Arabien",
+        "id": "movie",
         "year": "1962",
         "genres": [
             "Adventure",
@@ -4525,6 +4608,7 @@
     },
     {
         "title": "Kvinna utan samvete",
+        "id": "movie",
         "year": "1944",
         "genres": [
             "Crime",
@@ -4580,6 +4664,7 @@
     },
     {
         "title": "Eternal Sunshine of the Spotless Mind",
+        "id": "movie",
         "year": "2004",
         "genres": [
             "Drama",
@@ -4635,6 +4720,7 @@
     },
     {
         "title": "Skuggor \u00f6ver s\u00f6dern",
+        "id": "movie",
         "year": "1962",
         "genres": [
             "Crime",
@@ -4689,6 +4775,7 @@
     },
     {
         "title": "Amadeus",
+        "id": "movie",
         "year": "1984",
         "genres": [
             "Biography",
@@ -4744,6 +4831,7 @@
     },
     {
         "title": "Toy Story 3",
+        "id": "movie",
         "year": "2010",
         "genres": [
             "Animation",
@@ -4799,6 +4887,7 @@
     },
     {
         "title": "Full Metal Jacket",
+        "id": "movie",
         "year": "1987",
         "genres": [
             "Drama",
@@ -4853,6 +4942,7 @@
     },
     {
         "title": "Dangal",
+        "id": "movie",
         "year": "2016",
         "genres": [
             "Action",
@@ -4908,6 +4998,7 @@
     },
     {
         "title": "Bl\u00e5sningen",
+        "id": "movie",
         "year": "1973",
         "genres": [
             "Comedy",
@@ -4963,6 +5054,7 @@
     },
     {
         "title": "\u00c5r 2001 - Ett rymd\u00e4ventyr",
+        "id": "movie",
         "year": "1968",
         "genres": [
             "Adventure",
@@ -5017,6 +5109,7 @@
     },
     {
         "title": "Babam ve Oglum",
+        "id": "movie",
         "year": "2005",
         "genres": [
             "Drama"
@@ -5070,6 +5163,7 @@
     },
     {
         "title": "Singin' in the Rain",
+        "id": "movie",
         "year": "1952",
         "genres": [
             "Comedy",
@@ -5125,6 +5219,7 @@
     },
     {
         "title": "Toy Story",
+        "id": "movie",
         "year": "1995",
         "genres": [
             "Animation",
@@ -5180,6 +5275,7 @@
     },
     {
         "title": "Cykeltjuven",
+        "id": "movie",
         "year": "1948",
         "genres": [
             "Drama"
@@ -5233,6 +5329,7 @@
     },
     {
         "title": "Chaplins pojke",
+        "id": "movie",
         "year": "1921",
         "genres": [
             "Comedy",
@@ -5288,6 +5385,7 @@
     },
     {
         "title": "Inglourious Basterds",
+        "id": "movie",
         "year": "2009",
         "genres": [
             "Adventure",
@@ -5343,6 +5441,7 @@
     },
     {
         "title": "Snatch",
+        "id": "movie",
         "year": "2000",
         "genres": [
             "Comedy",
@@ -5397,6 +5496,7 @@
     },
     {
         "title": "Monty Pythons galna v\u00e4rld",
+        "id": "movie",
         "year": "1975",
         "genres": [
             "Adventure",
@@ -5452,6 +5552,7 @@
     },
     {
         "title": "3 Idiots",
+        "id": "movie",
         "year": "2009",
         "genres": [
             "Comedy",
@@ -5506,6 +5607,7 @@
     },
     {
         "title": "L.A. konfidentiellt",
+        "id": "movie",
         "year": "1997",
         "genres": [
             "Crime",
@@ -5561,6 +5663,7 @@
     },
     {
         "title": "F\u00f6r n\u00e5gra f\u00e5 dollar mer",
+        "id": "movie",
         "year": "1965",
         "genres": [
             "Western"
@@ -5614,6 +5717,7 @@
     },
     {
         "title": "Scarface",
+        "id": "movie",
         "year": "1983",
         "genres": [
             "Crime",
@@ -5668,6 +5772,7 @@
     },
     {
         "title": "Jakten",
+        "id": "movie",
         "year": "2012",
         "genres": [
             "Drama"
@@ -5721,6 +5826,7 @@
     },
     {
         "title": "Demonernas port",
+        "id": "movie",
         "year": "1950",
         "genres": [
             "Crime",
@@ -5776,6 +5882,7 @@
     },
     {
         "title": "Ungkarlslyan",
+        "id": "movie",
         "year": "1960",
         "genres": [
             "Comedy",
@@ -5831,6 +5938,7 @@
     },
     {
         "title": "Will Hunting",
+        "id": "movie",
         "year": "1997",
         "genres": [
             "Drama"
@@ -5884,6 +5992,7 @@
     },
     {
         "title": "Nader och Simin - En separation",
+        "id": "movie",
         "year": "2011",
         "genres": [
             "Drama",
@@ -5938,6 +6047,7 @@
     },
     {
         "title": "Indiana Jones och det sista korst\u00e5get",
+        "id": "movie",
         "year": "1989",
         "genres": [
             "Action",
@@ -5993,6 +6103,7 @@
     },
     {
         "title": "Metropolis",
+        "id": "movie",
         "year": "1927",
         "genres": [
             "Drama",
@@ -6047,6 +6158,7 @@
     },
     {
         "title": "Allt om Eva",
+        "id": "movie",
         "year": "1950",
         "genres": [
             "Drama"
@@ -6100,6 +6212,7 @@
     },
     {
         "title": "Yojimbo (Livvakten)",
+        "id": "movie",
         "year": "1961",
         "genres": [
             "Action",
@@ -6155,6 +6268,7 @@
     },
     {
         "title": "Batman Begins",
+        "id": "movie",
         "year": "2005",
         "genres": [
             "Action",
@@ -6209,6 +6323,7 @@
     },
     {
         "title": "Upp",
+        "id": "movie",
         "year": "2009",
         "genres": [
             "Animation",
@@ -6264,6 +6379,7 @@
     },
     {
         "title": "I hetaste laget",
+        "id": "movie",
         "year": "1959",
         "genres": [
             "Comedy",
@@ -6318,6 +6434,7 @@
     },
     {
         "title": "Sierra Madres skatt",
+        "id": "movie",
         "year": "1948",
         "genres": [
             "Adventure",
@@ -6373,6 +6490,7 @@
     },
     {
         "title": "De skoningsl\u00f6sa",
+        "id": "movie",
         "year": "1992",
         "genres": [
             "Drama",
@@ -6427,6 +6545,7 @@
     },
     {
         "title": "Underg\u00e5ngen - Hitler och Tredje rikets fall",
+        "id": "movie",
         "year": "2004",
         "genres": [
             "Biography",
@@ -6482,6 +6601,7 @@
     },
     {
         "title": "Tjuren fr\u00e5n Bronx",
+        "id": "movie",
         "year": "1980",
         "genres": [
             "Biography",
@@ -6537,6 +6657,7 @@
     },
     {
         "title": "Den tredje mannen",
+        "id": "movie",
         "year": "1949",
         "genres": [
             "Film-Noir",
@@ -6592,6 +6713,7 @@
     },
     {
         "title": "Die Hard",
+        "id": "movie",
         "year": "1988",
         "genres": [
             "Action",
