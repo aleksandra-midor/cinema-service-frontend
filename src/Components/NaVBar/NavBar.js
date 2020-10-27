@@ -1,7 +1,7 @@
-import React from 'react';
-import './NavBar.scss'
+import React from "react";
+import "./NavBar.scss";
 
-function NavBar () {
+function NavBar() {
   return (
     <header className="NavBar">
       <p className="NavBar_Logo">Cinema Kryszak</p>
@@ -10,7 +10,7 @@ function NavBar () {
         <li>find a theatre</li>
       </ul>
     </header>
-  )
+  );
 }
 
 export default NavBar;

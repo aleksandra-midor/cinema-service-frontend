@@ -2,7 +2,7 @@ import React from "react";
 import "./App.scss";
 import { Router } from "@reach/router";
 import MainPage from "./Pages/MainPage/MainPage";
-import NavBar from './Components/NaVBar/NavBar';
+import NavBar from "./Components/NaVBar/NavBar";
 
 function App() {
   return (

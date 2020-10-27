@@ -1,0 +1,17 @@
+// @import './styles/variables.scss';
+
+.MovieSlider {
+  display: flex; 
+
+  &.MovieSlider-large {
+    height: 60vh;
+    overflow: hidden;
+  }
+
+  .MovieSlider_Image {
+    flex: 1
+  }
+}
+
+
+

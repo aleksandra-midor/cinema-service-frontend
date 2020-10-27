@@ -1,14 +1,14 @@
-import React from 'react';
-import './MovieImage.scss'
-import Image from '../../Components/Image/Image';
+import React from "react";
+import "./MovieImage.scss";
+import Image from "../Image/Image";
 
-function MovieImage (props) {
+function MovieImage(props) {
   return (
-    <div>
-     <Image src={props.src} title={props.title}/>
-     <p>{props.title}</p>
+    <div className="MovieImage">
+      <Image src={props.src} title={props.title} />
+      <p className="MovieImage_Title">{props.title}</p>
     </div>
-  )
+  );
 }
 
 export default MovieImage;
