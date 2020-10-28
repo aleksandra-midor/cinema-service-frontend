@@ -7,7 +7,7 @@ function MainPage() {
   return (
     <main className="MainPage">
       <header className="MainPage_Header">
-        <h1>Cinema tickets</h1>
+        <h1>Premieres</h1>
       </header>
       <MovieSlider count={3} movies={movies} />
     </main>

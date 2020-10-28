@@ -20,3 +20,12 @@ ul {
   margin: 0;
   padding: 0;
 }
+
+a {
+  text-decoration: none;
+  color: $text-color-default;
+  
+  &:hover {
+color: $color-primary;
+  }
+}

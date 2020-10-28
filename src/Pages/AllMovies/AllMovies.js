@@ -18,7 +18,9 @@ function AllMovies() {
                   <Image src={el.posterurl} title={el.title} />
                 </Link>
                 <section className="Item_Details">
-                  <h2>{el.title}</h2>
+                  <Link to={`/movie/${el.id}`}>
+                    <h2>{el.title}</h2>
+                  </Link>
                   <p>{el.genres}</p>
                   <p>{el.duration}</p>
                 </section>
