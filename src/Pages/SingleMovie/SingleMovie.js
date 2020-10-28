@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import findMovie from "./helper";
+import Image from "../../Components/Image/Image";
+import "./SingleMovie.scss";
 
 function SingleMovie(props) {
   const { movieId } = props;
@@ -19,7 +21,16 @@ function SingleMovie(props) {
     }
   }, [movieData, movieId]);
   if (movieData) {
-    return <>{movieData.id}</>;
+    console.log(movieData);
+    return (
+      <main className="SingleMovie">
+        <Image src={movieData.posterurl} title={movieData.title} />
+        <section className="SingleMovie_Info">
+          <h1>{movieData.id}</h1>
+          <p>{movieData.storyline}</p>
+        </section>
+      </main>
+    );
   }
   return <>loading</>;
 }
