@@ -1,15 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "@reach/router";
 import Image from "../../Components/Image/Image";
-import movies from "../../data/top-rated-movies-01.json";
 import "./AllMovies.scss";
+import AppContext from "../../store/context";
 
 function AllMovies() {
+  const { state } = useContext(AppContext);
   return (
     <main className="AllMovies">
       <h1>All movies</h1>
       <ul className="AllMovies_List">
-        {movies.map((el, i) => {
+        {state.movies.map((el, i) => {
           return (
             // eslint-disable-next-line react/no-array-index-key
             <li key={i}>

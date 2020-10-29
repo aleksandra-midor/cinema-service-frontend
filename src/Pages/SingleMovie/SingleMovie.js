@@ -1,14 +1,23 @@
-import React, { useEffect, useState } from "react";
-import findMovie from "./helper";
+import React, { useEffect, useState, useContext, useCallback } from "react";
 import Image from "../../Components/Image/Image";
 import "./SingleMovie.scss";
+import AppContext from "../../store/context";
 
 function SingleMovie(props) {
   const { movieId } = props;
   // console.log(props);
-  console.log(findMovie(props.movieId));
+  const { state } = useContext(AppContext);
 
   const [movieData, setMovieData] = useState();
+
+  const findMovie = useCallback(
+    (id) => {
+      return state.movies.find((amovie) => amovie.id === id);
+      // return <p>{foundMovie.title}</p>;
+    },
+
+    [state]
+  );
 
   useEffect(() => {
     if (!movieData || (movieData && movieData.id !== movieId)) {
@@ -19,7 +28,7 @@ function SingleMovie(props) {
         setMovieData(foundMovie);
       }
     }
-  }, [movieData, movieId]);
+  }, [movieData, movieId, findMovie]);
   if (movieData) {
     console.log(movieData);
     return (

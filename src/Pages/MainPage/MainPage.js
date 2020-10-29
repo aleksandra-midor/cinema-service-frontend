@@ -1,15 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import MovieSlider from "../../Components/MovieSlider/MovieSlider";
-import movies from "../../data/top-rated-movies-01.json";
+import AppContext from "../../store/context";
 
 function MainPage() {
-  console.log(movies[3].posterurl);
+  const { state } = useContext(AppContext);
   return (
     <main className="MainPage">
       <header className="MainPage_Header">
         <h1>Premieres</h1>
       </header>
-      <MovieSlider count={3} movies={movies} />
+      <MovieSlider count={3} movies={state.movies} />
     </main>
   );
 }
