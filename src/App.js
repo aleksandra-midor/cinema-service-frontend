@@ -8,6 +8,7 @@ import MainPage from "./Pages/MainPage/MainPage";
 import NavBar from "./Components/NaVBar/NavBar";
 import SingleMovie from "./Pages/SingleMovie/SingleMovie";
 import AllMovies from "./Pages/AllMovies/AllMovies";
+import Modal from "./Components/Modal/Modal";
 
 // const baseUrl = process.env.REACT_APP_BASE_URL;
 // console.log(baseUrl);
@@ -48,6 +49,7 @@ function App() {
     <AppContext.Provider value={{ state, dispatch }}>
       <div className="App">
         <NavBar />
+        <Modal>***** ***</Modal>
         <Router>
           <MainPage path="/" />
           <SingleMovie path="movie/:movieId" />
