@@ -8,7 +8,6 @@ import MainPage from "./Pages/MainPage/MainPage";
 import NavBar from "./Components/NaVBar/NavBar";
 import SingleMovie from "./Pages/SingleMovie/SingleMovie";
 import AllMovies from "./Pages/AllMovies/AllMovies";
-import movies from "./data/top-rated-movies-01.json";
 
 // const baseUrl = process.env.REACT_APP_BASE_URL;
 // console.log(baseUrl);
@@ -28,10 +27,21 @@ function App() {
 
       console.log(result);
 
-      dispatch({ type: "setMovies", data: movies });
+      dispatch({ type: "setMovies", data: result.data });
+    };
+    const fetchAllCinemas = async () => {
+      const result = await axios({
+        method: "get",
+        url: "http://localhost:5001/api/v1/cinemas",
+      });
+
+      console.log(result);
+
+      dispatch({ type: "setCinemas", data: result.data });
     };
 
     fetchAllMovies();
+    fetchAllCinemas();
   }, [dispatch]);
 
   return (
