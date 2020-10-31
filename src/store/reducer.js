@@ -12,6 +12,13 @@ const setCinemas = (state, data) => {
   };
 };
 
+const setSelectedCinema = (state, data) => {
+  return {
+    ...state,
+    selectedCinema: data,
+  };
+};
+
 const reducer = (state, action) => {
   switch (action.type) {
     case "setMovies":
@@ -19,6 +26,9 @@ const reducer = (state, action) => {
 
     case "setCinemas":
       return setCinemas(state, action.data);
+
+    case "setSelectedCinema":
+      return setSelectedCinema(state, action.data);
 
     default:
       return state;

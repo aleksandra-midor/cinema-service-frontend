@@ -3,41 +3,52 @@ import AppContext from "../../store/context";
 import Modal from "../Modal/Modal";
 
 function CinemaSelection() {
-  const { state } = useContext(AppContext);
-  const { cinemas } = state;
+  const { state, dispatch } = useContext(AppContext);
+  const {
+    cinemas,
+    // selectedCinema
+  } = state;
   const [modalVisible, setModalVisible] = useState(true);
   // eslint-disable-next-line no-unused-vars
-  const [selectedCinema, setSelectedCinema] = useState();
+  const [cinema, setCinema] = useState();
+
+  const setSelectedCinema = (data) =>
+    dispatch({ type: "setSelectedCinema", data });
 
   useEffect(() => {
-    if (cinemas.length > 0 && !selectedCinema) {
-      console.log(",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,");
-      setSelectedCinema(cinemas[0]._id);
+    if (cinemas.length > 0 && !cinema) {
+      setCinema(cinemas[0]._id);
     }
-  }, [cinemas, selectedCinema]);
-  console.log(selectedCinema);
-  const displayCinemas = cinemas.map((cinema) => {
+  }, [cinemas, cinema]);
+
+  const handleCinemaSelection = () => {
+    setSelectedCinema(cinemas.find((el) => el._id === cinema));
+    setModalVisible(false);
+  };
+
+  console.log(cinema);
+
+  const displayCinemas = cinemas.map((el) => {
     return (
       // eslint-disable-next-line jsx-a11y/label-has-associated-control
       <label>
         <input
           type="radio"
           name="cinema"
-          key={cinema.name}
-          onChange={() => setSelectedCinema(cinema._id)}
-          checked={selectedCinema === cinema._id}
+          key={el.name}
+          onChange={() => setCinema(el._id)}
+          checked={cinema === el._id}
         />
-        <span>{cinema.city}</span>
+        <span>{el.city}</span>
       </label>
     );
   });
-  console.log("::::::::::::::::::::::::::::::::::::::::::::::::::", state);
   return (
     <div>
       Select your cinema
       <Modal
         visible={modalVisible}
-        onClickOk={() => setModalVisible(false)}
+        onClickOk={handleCinemaSelection}
         title="Select the location of your cinema"
       >
         {displayCinemas}
