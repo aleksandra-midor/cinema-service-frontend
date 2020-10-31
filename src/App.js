@@ -30,19 +30,8 @@ function App() {
 
       dispatch({ type: "setMovies", data: result.data });
     };
-    const fetchAllCinemas = async () => {
-      const result = await axios({
-        method: "get",
-        url: "http://localhost:5001/api/v1/cinemas",
-      });
-
-      console.log(result);
-
-      dispatch({ type: "setCinemas", data: result.data });
-    };
 
     fetchAllMovies();
-    fetchAllCinemas();
   }, [dispatch]);
 
   return (

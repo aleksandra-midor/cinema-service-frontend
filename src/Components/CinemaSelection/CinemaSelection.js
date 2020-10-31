@@ -1,4 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
+import axios from "axios";
 import AppContext from "../../store/context";
 import Modal from "../Modal/Modal";
 
@@ -8,9 +9,13 @@ function CinemaSelection() {
     cinemas,
     // selectedCinema
   } = state;
-  const [modalVisible, setModalVisible] = useState(true);
+  const [modalVisible, setModalVisible] = useState(false);
   // eslint-disable-next-line no-unused-vars
   const [cinema, setCinema] = useState();
+
+  const [cinemaLocalStorage] = useState(
+    localStorage.getItem("selectedCinemaId")
+  );
 
   const setSelectedCinema = (data) =>
     dispatch({ type: "setSelectedCinema", data });
@@ -21,8 +26,24 @@ function CinemaSelection() {
     }
   }, [cinemas, cinema]);
 
+  useEffect(() => {
+    if (!cinemaLocalStorage) {
+      setModalVisible(true);
+      const fetchAllCinemas = async () => {
+        const result = await axios({
+          method: "get",
+          url: "http://localhost:5001/api/v1/cinemas",
+        });
+
+        dispatch({ type: "setCinemas", data: result.data });
+      };
+      fetchAllCinemas();
+    }
+  }, [cinemaLocalStorage, dispatch]);
+
   const handleCinemaSelection = () => {
     setSelectedCinema(cinemas.find((el) => el._id === cinema));
+    localStorage.setItem("selectedCinemaId", cinema);
     setModalVisible(false);
   };
 
@@ -45,7 +66,6 @@ function CinemaSelection() {
   });
   return (
     <div>
-      Select your cinema
       <Modal
         visible={modalVisible}
         onClickOk={handleCinemaSelection}
