@@ -1,14 +1,24 @@
 import React from "react";
 import "./Button.scss";
 
-const Button = () => {
+const Button = ({
+  children,
+  color,
+  // variant,
+  onClick,
+}) => {
+  // const cssClasses = ["Button", "test",
+  // color === "primary " ? "Button-primary" : ""
+  // ];
+
+  const cssClasses = ["Button"];
+  if (color === "primary") {
+    cssClasses.push("Button-primary");
+  }
+
   return (
-    <button
-      type="button"
-      className="ModalClose"
-      onClick={() => console.log("***** ***")}
-    >
-      x
+    <button type="button" onClick={onClick} className={cssClasses.join(" ")}>
+      {children}
     </button>
   );
 };

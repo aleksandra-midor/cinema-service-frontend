@@ -1,0 +1,15 @@
+@import '../../styles/variables.scss';
+
+.Button {
+  // position: absolute;
+  // top: 5px;
+  // right: 5px;
+  border: 1px solid;
+  background: transparent;
+  color: white;
+  padding: 1rem;
+
+  &.Button-primary {
+    background: $color-primary;  
+  }
+}
