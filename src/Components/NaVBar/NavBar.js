@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "@reach/router";
 import "./NavBar.scss";
+import AppContext from "../../store/context";
+import Button from "../Button/Button";
 
 function NavBar() {
+  const { state, dispatch } = useContext(AppContext);
+  const { selectedCinema } = state;
+  console.log("zzzzzzzzzzzzzzzzzzzzzzzzzzzzzz", selectedCinema);
+
+  const handleSelectCinema = () => {
+    dispatch({ type: "setSelectedCinema", data: null });
+  };
+
   return (
     <header className="NavBar">
       <Link to="/">
@@ -12,7 +22,11 @@ function NavBar() {
         <Link to="/movies">
           <li>movies</li>
         </Link>
-        <li>find a theatre</li>
+        <li>
+          <Button onClick={() => handleSelectCinema()}>
+            {selectedCinema ? selectedCinema.city : null}
+          </Button>
+        </li>
       </ul>
     </header>
   );

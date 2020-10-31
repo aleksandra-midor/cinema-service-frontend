@@ -5,13 +5,10 @@ import Modal from "../Modal/Modal";
 
 function CinemaSelection() {
   const { state, dispatch } = useContext(AppContext);
-  const {
-    cinemas,
-    // selectedCinema
-  } = state;
+  const { cinemas, selectedCinema } = state;
   const [modalVisible, setModalVisible] = useState(false);
   // eslint-disable-next-line no-unused-vars
-  const [cinema, setCinema] = useState();
+  const [modalCinemaId, setModalCinemaId] = useState();
 
   const [cinemaLocalStorage] = useState(
     localStorage.getItem("selectedCinemaId")
@@ -21,14 +18,13 @@ function CinemaSelection() {
     dispatch({ type: "setSelectedCinema", data });
 
   useEffect(() => {
-    if (cinemas.length > 0 && !cinema) {
-      setCinema(cinemas[0]._id);
+    if (cinemas.length > 0 && !modalCinemaId) {
+      setModalCinemaId(cinemas[0]._id);
     }
-  }, [cinemas, cinema]);
+  }, [cinemas, modalCinemaId]);
 
   useEffect(() => {
-    if (!cinemaLocalStorage) {
-      setModalVisible(true);
+    if (selectedCinema === undefined) {
       const fetchAllCinemas = async () => {
         const result = await axios({
           method: "get",
@@ -37,17 +33,34 @@ function CinemaSelection() {
 
         dispatch({ type: "setCinemas", data: result.data });
       };
+
       fetchAllCinemas();
     }
-  }, [cinemaLocalStorage, dispatch]);
+
+    if (selectedCinema === null || (!selectedCinema && !cinemaLocalStorage)) {
+      setModalVisible(true);
+    }
+
+    if (!selectedCinema && cinemaLocalStorage) {
+      const fetchOneCinema = async () => {
+        const result = await axios({
+          method: "get",
+          url: `http://localhost:5001/api/v1/cinemas/${cinemaLocalStorage}`,
+        });
+        dispatch({ type: "setSelectedCinema", data: result.data });
+      };
+      fetchOneCinema();
+    }
+  }, [cinemaLocalStorage, dispatch, modalCinemaId, selectedCinema]);
 
   const handleCinemaSelection = () => {
-    setSelectedCinema(cinemas.find((el) => el._id === cinema));
-    localStorage.setItem("selectedCinemaId", cinema);
+    console.log(modalCinemaId);
+    setSelectedCinema(cinemas.find((el) => el._id === modalCinemaId));
+    localStorage.setItem("selectedCinemaId", modalCinemaId);
     setModalVisible(false);
   };
 
-  console.log(cinema);
+  console.log(modalCinemaId);
 
   const displayCinemas = cinemas.map((el) => {
     return (
@@ -57,8 +70,8 @@ function CinemaSelection() {
           type="radio"
           name="cinema"
           key={el.name}
-          onChange={() => setCinema(el._id)}
-          checked={cinema === el._id}
+          onChange={() => setModalCinemaId(el._id)}
+          checked={modalCinemaId === el._id}
         />
         <span>{el.city}</span>
       </label>
