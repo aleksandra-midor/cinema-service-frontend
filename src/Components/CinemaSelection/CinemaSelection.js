@@ -65,7 +65,7 @@ function CinemaSelection() {
   const displayCinemas = cinemas.map((el) => {
     return (
       // eslint-disable-next-line jsx-a11y/label-has-associated-control
-      <label>
+      <label key={el._id}>
         <input
           type="radio"
           name="cinema"
