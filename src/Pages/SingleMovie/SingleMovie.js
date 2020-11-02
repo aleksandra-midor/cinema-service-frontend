@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext, useCallback } from "react";
 import Image from "../../Components/Image/Image";
 import "./SingleMovie.scss";
 import AppContext from "../../store/context";
+import Button from "../../Components/Button/Button";
 
 function SingleMovie(props) {
   const { movieId } = props;
@@ -19,6 +20,22 @@ function SingleMovie(props) {
 
     [state]
   );
+
+  const daysWithSeances = (houre, date) => {
+    if (houre.length > 0) {
+      console.log(houre.length);
+
+      return (
+        <>
+          <h3>{date}</h3>
+          {houre.map((item) => (
+            <Button key={item}>{item}</Button>
+          ))}
+        </>
+      );
+    }
+    return null;
+  };
 
   useEffect(() => {
     if (!movieData || (movieData && movieData._id !== movieId)) {
@@ -42,15 +59,29 @@ function SingleMovie(props) {
   }, [movieData, movieId, findMovie]);
 
   function repertoireRender() {
+    console.log("44444444444444444444444444444", repertoireData);
     if (repertoireData) {
       return (
-        <div>
-          Nearest seances
-          {repertoireData[0].date}
-        </div>
+        <section>
+          <h2>Nearest seances</h2>
+          <ul className="AllMovies_List">
+            {/* {repertoireData[0].date} */}
+            {repertoireData.map((el, i) => {
+              return (
+                // eslint-disable-next-line react/no-array-index-key
+                <li key={i}>
+                  <article className="Item_Details">
+                    {/* <h3>{el.date}</h3> */}
+                    {daysWithSeances(el.hours, el.date)}
+                  </article>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
       );
     }
-    return <div>kupa</div>;
+    return <div>error</div>;
   }
 
   if (movieData) {
