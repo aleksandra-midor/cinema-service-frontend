@@ -1,5 +1,6 @@
 import React, { useEffect, useReducer } from "react";
 import "./App.scss";
+import { withTranslation } from "react-i18next";
 import { Router } from "@reach/router";
 import axios from "axios";
 import AppContext from "./store/context";
@@ -49,4 +50,4 @@ function App() {
   );
 }
 
-export default App;
+export default withTranslation()(App);

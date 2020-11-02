@@ -1,14 +1,16 @@
 import React, { useContext } from "react";
 import { Link } from "@reach/router";
+import { useTranslation } from "react-i18next";
 import Image from "../../Components/Image/Image";
 import "./AllMovies.scss";
 import AppContext from "../../store/context";
 
 function AllMovies() {
+  const { t } = useTranslation();
   const { state } = useContext(AppContext);
   return (
     <main className="AllMovies">
-      <h1>All movies</h1>
+      <h1>{t("allMovies:allMovies")}</h1>
       <ul className="AllMovies_List">
         {state.movies.map((el, i) => {
           return (

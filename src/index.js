@@ -2,9 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.scss";
 import App from "./App";
-import setUpI18n from "./i18n/i18n";
-
-setUpI18n();
+import "./i18n/i18n";
 
 ReactDOM.render(
   <React.StrictMode>
