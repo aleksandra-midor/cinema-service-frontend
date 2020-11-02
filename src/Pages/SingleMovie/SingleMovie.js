@@ -6,7 +6,6 @@ import Button from "../../Components/Button/Button";
 
 function SingleMovie(props) {
   const { movieId } = props;
-  // console.log(props);
   const { state } = useContext(AppContext);
 
   const [movieData, setMovieData] = useState();
@@ -15,7 +14,6 @@ function SingleMovie(props) {
   const findMovie = useCallback(
     (id) => {
       return state.movies.find((amovie) => amovie._id === id);
-      // return <p>{foundMovie.title}</p>;
     },
 
     [state]
@@ -23,8 +21,6 @@ function SingleMovie(props) {
 
   const daysWithSeances = (houre, date) => {
     if (houre.length > 0) {
-      console.log(houre.length);
-
       return (
         <>
           <h3>{date}</h3>
@@ -37,10 +33,22 @@ function SingleMovie(props) {
     return null;
   };
 
+  const dateSorter = (dates) => {
+    const today = new Date().getDay();
+    const sortedDates = [];
+
+    for (let i = today; i < dates.length; i += 1) {
+      sortedDates.push(dates[i]);
+    }
+    for (let i = 0; i < today; i += 1) {
+      sortedDates.push(dates[i]);
+    }
+    return sortedDates;
+  };
+
   useEffect(() => {
     if (!movieData || (movieData && movieData._id !== movieId)) {
       const foundMovie = findMovie(movieId);
-      console.log(foundMovie);
 
       if (foundMovie) {
         setMovieData(foundMovie);
@@ -52,21 +60,19 @@ function SingleMovie(props) {
         (el) => el.movieId === movieId
       );
       if (foundRepertoire) {
-        console.log(foundRepertoire.seance);
         setRepertoireData(foundRepertoire.seance);
       }
     }
   }, [movieData, movieId, findMovie]);
 
   function repertoireRender() {
-    console.log("44444444444444444444444444444", repertoireData);
     if (repertoireData) {
       return (
         <section>
           <h2>Nearest seances</h2>
           <ul className="AllMovies_List">
-            {/* {repertoireData[0].date} */}
-            {repertoireData.map((el, i) => {
+            {dateSorter(repertoireData).map((el, i) => {
+              console.log(el);
               return (
                 // eslint-disable-next-line react/no-array-index-key
                 <li key={i}>
@@ -85,7 +91,6 @@ function SingleMovie(props) {
   }
 
   if (movieData) {
-    console.log(movieData);
     return (
       <main className="SingleMovie">
         <Image src={movieData.posterurl} title={movieData.title} />
