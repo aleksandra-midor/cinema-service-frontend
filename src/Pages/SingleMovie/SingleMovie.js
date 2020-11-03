@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useContext, useCallback } from "react";
+import { navigate } from "@reach/router";
 import Image from "../../Components/Image/Image";
 import "./SingleMovie.scss";
 import AppContext from "../../store/context";
@@ -43,6 +44,7 @@ function SingleMovie(props) {
                     date,
                     hour: item,
                   });
+                  navigate("/ticket");
                 }}
               >
                 Buy a ticket
