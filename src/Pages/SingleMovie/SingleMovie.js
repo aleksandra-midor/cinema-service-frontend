@@ -6,7 +6,8 @@ import Button from "../../Components/Button/Button";
 
 function SingleMovie(props) {
   const { movieId } = props;
-  const { state } = useContext(AppContext);
+  const { state, dispatch } = useContext(AppContext);
+  // const { ticket } = state;
 
   const [movieData, setMovieData] = useState();
   const [repertoireData, setRepertoireData] = useState([]);
@@ -19,13 +20,35 @@ function SingleMovie(props) {
     [state]
   );
 
+  const setTicket = (data) => {
+    // console.log(data2);
+    dispatch({ type: "setTicket", data });
+  };
+
   const daysWithSeances = (houre, date) => {
     if (houre.length > 0) {
       return (
         <>
           <h3>{date}</h3>
           {houre.map((item) => (
-            <Button key={item}>{item}</Button>
+            <>
+              <p key={date + item}>{item}</p>
+              <Button
+                key={item}
+                onClick={() => {
+                  console.log(movieData.title, date, item);
+                  setTicket({
+                    movieId: movieData._id,
+                    movieTitle: movieData.title,
+                    date,
+                    hour: item,
+                  });
+                }}
+              >
+                Buy a ticket
+              </Button>
+              {/* // <Button key={item}>{item}</Button> */}
+            </>
           ))}
         </>
       );
