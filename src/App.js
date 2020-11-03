@@ -10,6 +10,7 @@ import NavBar from "./Components/NaVBar/NavBar";
 import SingleMovie from "./Pages/SingleMovie/SingleMovie";
 import AllMovies from "./Pages/AllMovies/AllMovies";
 import CinemaSelection from "./Components/CinemaSelection/CinemaSelection";
+import BuyTicket from "./Pages/BuyTicket/BuyTicket";
 
 // const baseUrl = process.env.REACT_APP_BASE_URL;
 // console.log(baseUrl);
@@ -44,6 +45,7 @@ function App() {
           <MainPage path="/" />
           <SingleMovie path="movie/:movieId" />
           <AllMovies path="movies" />
+          <BuyTicket path="ticket" />
         </Router>
       </div>
     </AppContext.Provider>
