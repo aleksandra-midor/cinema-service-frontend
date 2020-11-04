@@ -10,8 +10,8 @@ const InitialConfirmation = (props) => {
       <p>{state.ticket.movieTitle}</p>
       <p>{state.ticket.date}</p>
       <p>{state.ticket.hour}</p>
-      <Button onClick={() => props.handleNextStep()}>Select seats</Button>
       <Button onClick={() => props.handlePreviousStep()}>Back</Button>
+      <Button onClick={() => props.handleNextStep()}>Select seats</Button>
     </article>
   );
 };

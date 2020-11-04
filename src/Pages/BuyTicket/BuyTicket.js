@@ -35,7 +35,12 @@ const BuyTicket = () => {
           handlePreviousStep={handlePreviousStep}
         />
       ) : null}
-      {step === 2 ? <SelectSeats /> : null}
+      {step === 2 ? (
+        <SelectSeats
+          handleNextStep={handleNextStep}
+          handlePreviousStep={handlePreviousStep}
+        />
+      ) : null}
       {step === 3 ? <p>Step 2</p> : null}
     </main>
   );
