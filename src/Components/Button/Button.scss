@@ -8,6 +8,11 @@
   background: transparent;
   color: white;
   padding: 1rem;
+  cursor: pointer;
+
+  &:hover{
+    background: $color-primary
+  }
 
   &.Button-primary {
     background: $color-primary;  

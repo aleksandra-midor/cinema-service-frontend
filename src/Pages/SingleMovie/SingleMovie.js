@@ -12,6 +12,7 @@ function SingleMovie(props) {
 
   const [movieData, setMovieData] = useState();
   const [repertoireData, setRepertoireData] = useState([]);
+  console.log("--------------", repertoireData);
 
   const findMovie = useCallback(
     (id) => {
@@ -31,27 +32,29 @@ function SingleMovie(props) {
       return (
         <>
           <h3>{date}</h3>
-          {houre.map((item) => (
-            <>
-              <p key={date + item}>{item}</p>
-              <Button
-                key={item}
-                onClick={() => {
-                  console.log(movieData.title, date, item);
-                  setTicket({
-                    movieId: movieData._id,
-                    movieTitle: movieData.title,
-                    date,
-                    hour: item,
-                  });
-                  navigate("/ticket");
-                }}
-              >
-                Buy a ticket
-              </Button>
-              {/* // <Button key={item}>{item}</Button> */}
-            </>
-          ))}
+          <ul>
+            {houre.map((item) => (
+              <li className="Seances_Hour">
+                <p key={date + item}>{item}</p>
+                <Button
+                  key={item}
+                  onClick={() => {
+                    console.log(movieData.title, date, item);
+                    setTicket({
+                      movieId: movieData._id,
+                      movieTitle: movieData.title,
+                      date,
+                      hour: item,
+                    });
+                    navigate("/ticket");
+                  }}
+                >
+                  Buy a ticket
+                </Button>
+                {/* // <Button key={item}>{item}</Button> */}
+              </li>
+            ))}
+          </ul>
         </>
       );
     }
@@ -91,16 +94,16 @@ function SingleMovie(props) {
   }, [movieData, movieId, findMovie]);
 
   function repertoireRender() {
-    if (repertoireData) {
+    if (repertoireData.length > 0) {
       return (
-        <section>
+        <section className="Seances">
           <h2>Nearest seances</h2>
-          <ul className="AllMovies_List">
+          <ul>
             {dateSorter(repertoireData).map((el, i) => {
               console.log(el);
               return (
                 // eslint-disable-next-line react/no-array-index-key
-                <li key={i}>
+                <li className="Seances_Date" key={i}>
                   <article className="Item_Details">
                     {/* <h3>{el.date}</h3> */}
                     {daysWithSeances(el.hours, el.date)}
@@ -112,7 +115,7 @@ function SingleMovie(props) {
         </section>
       );
     }
-    return <div>error</div>;
+    return <div> ------------------ currently not in this cinema</div>;
   }
 
   if (movieData) {

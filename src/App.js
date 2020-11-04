@@ -18,9 +18,6 @@ import BuyTicket from "./Pages/BuyTicket/BuyTicket";
 function App() {
   const [state, dispatch] = useReducer(store.reducer, store.initialState);
 
-  // const setMovies = (data) => dispatch({ type: "setMovies", data });
-  // setMovies(movies);
-
   useEffect(() => {
     const fetchAllMovies = async () => {
       const result = await axios({
