@@ -18,18 +18,21 @@ const CheckoutForm = ({ selectedProduct, stripe }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const { token } = await stripe.createToken();
+    const { token, error } = await stripe.createToken();
+    console.log(stripe, error);
 
-    const order = await axios.post(
-      "http://localhost:5001/api/v1/stripe/charge",
-      {
-        amount: selectedProduct.price.toString().replace(".", ""),
-        source: token.id,
-        receipt_email: "customer@example.com",
-      }
-    );
-
-    setReceiptUrl(order.data.charge.receipt_url);
+    if (token) {
+      const order = await axios.post(
+        "http://localhost:5001/api/v1/stripe/charge",
+        {
+          amount: "10000",
+          // selectedProduct.price.toString().replace(".", ""),
+          source: token.id,
+          receipt_email: "customer@example.com",
+        }
+      );
+      setReceiptUrl(order.data.charge.receipt_url);
+    }
   };
 
   if (receiptUrl) {
