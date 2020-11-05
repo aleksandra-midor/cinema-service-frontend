@@ -3,6 +3,7 @@ import { navigate } from "@reach/router";
 import InitialConfirmation from "./Steps/InitilaConfirmation/InitilaConfirmation";
 import SelectSeats from "./Steps/SelectSeats/SelectSeats";
 import AppContext from "../../store/context";
+import Checkout from "./Steps/Checkout/Checkout";
 
 const BuyTicket = () => {
   const { state } = useContext(AppContext);
@@ -41,7 +42,13 @@ const BuyTicket = () => {
           handlePreviousStep={handlePreviousStep}
         />
       ) : null}
-      {step === 3 ? <p>Step 2</p> : null}
+      {step === 3 ? (
+        <InitialConfirmation
+          handleNextStep={handleNextStep}
+          handlePreviousStep={handlePreviousStep}
+        />
+      ) : null}
+      {step === 4 ? <Checkout /> : null}
     </main>
   );
 };
