@@ -3,7 +3,7 @@ import AppContext from "../../../../store/context";
 import Button from "../../../../Components/Button/Button";
 
 const SelectSeats = (props) => {
-  const { dispatch } = useContext(AppContext);
+  const { state, dispatch } = useContext(AppContext);
   const [selectedSeats, setSelectedSeats] = useState([]);
 
   const setTicket = (data) => {
@@ -20,6 +20,10 @@ const SelectSeats = (props) => {
       newState.pop(el);
     }
     setSelectedSeats(newState);
+  };
+
+  const finalPrice = () => {
+    return state.selectedCinema.ticketPrice * selectedSeats.length;
   };
 
   const nrOfSeats = 20;
@@ -50,6 +54,7 @@ const SelectSeats = (props) => {
         onClick={() => {
           setTicket({
             seats: selectedSeats,
+            totalPrice: finalPrice(),
           });
           props.handleNextStep();
         }}

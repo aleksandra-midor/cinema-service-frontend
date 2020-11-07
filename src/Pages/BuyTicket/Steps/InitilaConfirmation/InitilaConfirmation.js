@@ -4,32 +4,30 @@ import Button from "../../../../Components/Button/Button";
 
 const InitialConfirmation = (props) => {
   const { state } = useContext(AppContext);
-  const finalPrice = () => {
-    return state.selectedCinema.ticketPrice * state.ticket.seats.length;
-  };
+  const { ticket } = state;
 
-  console.log(state.selectedCinema.ticketPrice, state.ticket.seats);
+  console.log(state.selectedCinema.ticketPrice, ticket.seats);
   return (
     <article>
       <h3>Movie:</h3>
-      <p>{state.ticket.movieTitle}</p>
+      <p>{ticket.movieTitle}</p>
       <h3>Date:</h3>
-      <p>{state.ticket.date}</p>
+      <p>{ticket.date}</p>
       <h3>Hour:</h3>
-      <p>{state.ticket.hour}</p>
+      <p>{ticket.hour}</p>
       <h3>Single ticket price:</h3>
       <p>
         {state.selectedCinema.ticketPrice}
         &nbsp;kr
       </p>
-      {state.ticket.seats ? (
+      {ticket.seats ? (
         <>
           <h3>
-            Final price for&nbsp;
-            {state.ticket.seats.length}
+            Total price for&nbsp;
+            {ticket.seats.length}
             &nbsp;tickets:
           </h3>
-          <p>{finalPrice()}</p>
+          <p>{ticket.totalPrice}</p>
         </>
       ) : null}
       <Button onClick={() => props.handlePreviousStep()}>Back</Button>

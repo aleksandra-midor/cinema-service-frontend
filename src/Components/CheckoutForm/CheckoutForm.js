@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { navigate } from "@reach/router";
 import {
   CardNumberElement,
   CardExpiryElement,
@@ -7,13 +8,15 @@ import {
   injectStripe,
 } from "react-stripe-elements";
 import axios from "axios";
+import AppContext from "../../store/context";
 import "./CheckoutForm.scss";
-import { navigate } from "@reach/router";
 
 const CheckoutForm = ({ selectedProduct, stripe }) => {
   if (!selectedProduct) navigate("/");
 
+  const { state } = useContext(AppContext);
   const [receiptUrl, setReceiptUrl] = useState("");
+  const [email, setEmail] = useState("m.przybylowski@outlook.com");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -25,10 +28,11 @@ const CheckoutForm = ({ selectedProduct, stripe }) => {
       const order = await axios.post(
         "http://localhost:5001/api/v1/stripe/charge",
         {
-          amount: "10000",
+          // amount: "10000",
           // selectedProduct.price.toString().replace(".", ""),
           source: token.id,
-          receipt_email: "customer@example.com",
+          receiptEmail: email,
+          ticket: state.ticket,
         }
       );
       setReceiptUrl(order.data.charge.receipt_url);
@@ -59,6 +63,12 @@ const CheckoutForm = ({ selectedProduct, stripe }) => {
         <label>
           CVC
           <CardCVCElement />
+        </label>
+        <label>
+          <input
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+          />
         </label>
         <button type="submit" className="order-button">
           Pay
