@@ -20,37 +20,37 @@ const BuyTicket = () => {
   useEffect(() => {
     if (!state.ticket.movieId) {
       navigate("/");
-    }
-
-    if (step === 0) {
+    } else if (step === 0) {
       navigate(`/movie/${state.ticket.movieId}`);
     }
-  }, [state.ticket.movieId, step]);
+  }, [state.ticket, step]);
 
-  return (
-    <main>
-      {/* {step === 0 ? <InitialConfirmation setStep={setStep} /> : null} */}
-      {step === 1 ? (
-        <InitialConfirmation
-          handleNextStep={handleNextStep}
-          handlePreviousStep={handlePreviousStep}
-        />
-      ) : null}
-      {step === 2 ? (
-        <SelectSeats
-          handleNextStep={handleNextStep}
-          handlePreviousStep={handlePreviousStep}
-        />
-      ) : null}
-      {step === 3 ? (
-        <InitialConfirmation
-          handleNextStep={handleNextStep}
-          handlePreviousStep={handlePreviousStep}
-        />
-      ) : null}
-      {step === 4 ? <Checkout /> : null}
-    </main>
-  );
+  if (state.ticket.movieId && state.selectedCinema) {
+    return (
+      <main>
+        {step === 1 ? (
+          <InitialConfirmation
+            handleNextStep={handleNextStep}
+            handlePreviousStep={handlePreviousStep}
+          />
+        ) : null}
+        {step === 2 ? (
+          <SelectSeats
+            handleNextStep={handleNextStep}
+            handlePreviousStep={handlePreviousStep}
+          />
+        ) : null}
+        {step === 3 ? (
+          <InitialConfirmation
+            handleNextStep={handleNextStep}
+            handlePreviousStep={handlePreviousStep}
+          />
+        ) : null}
+        {step === 4 ? <Checkout /> : null}
+      </main>
+    );
+  }
+  return null;
 };
 
 export default BuyTicket;

@@ -18,14 +18,13 @@ const SelectSeats = (props) => {
         method: "get",
         url: `http://localhost:5001/api/v1/bookedSeats/${state.selectedCinema._id}/${state.ticket.movieId}/${state.ticket.date}/${state.ticket.hour}`,
       });
-      console.log("..................", state);
+
       setUnavailableSeats(result.data);
     };
     fetchUnavailableSeats();
   }, []);
 
   const handleSelectedSeats = (el) => {
-    console.log(el);
     const newState = [...selectedSeats];
     const foundElement = newState.find((element) => element === el);
     if (!foundElement) {
@@ -45,7 +44,6 @@ const SelectSeats = (props) => {
   for (let i = 1; i <= nrOfSeats; i += 1) {
     allSeats.push(i);
   }
-  console.log(allSeats);
 
   return (
     <main>

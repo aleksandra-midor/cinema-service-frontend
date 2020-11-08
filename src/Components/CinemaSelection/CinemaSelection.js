@@ -54,13 +54,10 @@ function CinemaSelection() {
   }, [cinemaLocalStorage, dispatch, modalCinemaId, selectedCinema]);
 
   const handleCinemaSelection = () => {
-    console.log(modalCinemaId);
     setSelectedCinema(cinemas.find((el) => el._id === modalCinemaId));
     localStorage.setItem("selectedCinemaId", modalCinemaId);
     setModalVisible(false);
   };
-
-  console.log(modalCinemaId);
 
   const displayCinemas = cinemas.map((el) => {
     return (

@@ -6,7 +6,6 @@ const InitialConfirmation = (props) => {
   const { state } = useContext(AppContext);
   const { ticket } = state;
 
-  console.log(state.selectedCinema.ticketPrice, ticket.seats);
   return (
     <article>
       <h3>Movie:</h3>
