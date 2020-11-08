@@ -14,13 +14,16 @@ import "./CheckoutForm.scss";
 const CheckoutForm = ({ selectedProduct, stripe }) => {
   if (!selectedProduct) navigate("/");
 
-  const { state } = useContext(AppContext);
+  const { state, dispatch } = useContext(AppContext);
   const [receiptUrl, setReceiptUrl] = useState("");
-  const [email, setEmail] = useState("m.przybylowski@outlook.com");
+  // const [email, setEmail] = useState("m.przybylowski@outlook.com");
+
+  const setTicket = (data) => {
+    dispatch({ type: "setTicket", data });
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
     const { token, error } = await stripe.createToken();
     console.log(stripe, error);
 
@@ -31,7 +34,7 @@ const CheckoutForm = ({ selectedProduct, stripe }) => {
           // amount: "10000",
           // selectedProduct.price.toString().replace(".", ""),
           source: token.id,
-          receiptEmail: email,
+          receiptEmail: state.ticket.customerEmail,
           ticket: state.ticket,
         }
       );
@@ -66,8 +69,16 @@ const CheckoutForm = ({ selectedProduct, stripe }) => {
         </label>
         <label>
           <input
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
+            value={state.ticket.customerEmail}
+            onChange={
+              (event) =>
+                setTicket({
+                  customerEmail: event.target.value,
+                  cinemaId: state.selectedCinema._id,
+                  cinemaName: state.selectedCinema.name,
+                })
+              // eslint-disable-next-line react/jsx-curly-newline
+            }
           />
         </label>
         <button type="submit" className="order-button">
