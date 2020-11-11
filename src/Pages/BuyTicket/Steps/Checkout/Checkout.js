@@ -1,23 +1,25 @@
-import React, { useContext, useEffect } from "react";
-import { StripeProvider, Elements } from "react-stripe-elements";
+import React, { useEffect } from "react";
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
 import CheckoutForm from "../../../../Components/CheckoutForm/CheckoutForm";
-import AppContext from "../../../../store/context";
+// import AppContext from "../../../../store/context";
 
 const Checkout = () =>
   // { selectedProduct, history }
   {
-    const { state } = useContext(AppContext);
+    // const { state } = useContext(AppContext);
 
     useEffect(() => {
       window.scrollTo(0, 0);
     }, []);
 
+    const stripeKey = process.env.REACT_APP_STRIPE_KEY;
+    const stripePromise = loadStripe(stripeKey);
+
     return (
-      <StripeProvider apiKey="pk_test_51HjoVnEiHRoAiJES5agETO5zFHFYCvVDH5eICMASDxRIp4dBhY9JqS5HWnaxtvUEJwybrR7phYENR4rp87qZ6D4600a1M5EvFq">
-        <Elements>
-          <CheckoutForm selectedProduct={state.ticket} />
-        </Elements>
-      </StripeProvider>
+      <Elements stripe={stripePromise}>
+        <CheckoutForm />
+      </Elements>
     );
   };
 export default Checkout;

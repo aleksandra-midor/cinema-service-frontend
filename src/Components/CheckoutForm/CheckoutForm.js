@@ -1,91 +1,129 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState, useContext } from "react";
+import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { navigate } from "@reach/router";
-import {
-  CardNumberElement,
-  CardExpiryElement,
-  CardCVCElement,
-  injectStripe,
-} from "react-stripe-elements";
+
 import axios from "axios";
 import AppContext from "../../store/context";
 import "./CheckoutForm.scss";
 
-const CheckoutForm = ({ selectedProduct, stripe }) => {
-  if (!selectedProduct) navigate("/");
-
+const CheckoutForm = () => {
   const { state, dispatch } = useContext(AppContext);
-  const [receiptUrl, setReceiptUrl] = useState("");
+
+  if (!state.ticket.movieId) navigate("/");
+
+  // const [receiptUrl, setReceiptUrl] = useState("");
+
+  const [isProcessing, setProcessingTo] = useState(false);
+  const [checkoutError, setCheckoutError] = useState();
+  const [paymentSucess, setPaymentSuccess] = useState(false);
+
+  const stripe = useStripe();
+  const elements = useElements();
+
   // const [email, setEmail] = useState("m.przybylowski@outlook.com");
 
   const setTicket = (data) => {
     dispatch({ type: "setTicket", data });
   };
 
+  const handleCardDetailsChange = (ev) => {
+    if (ev.error) {
+      setCheckoutError(ev.error.message);
+    } else {
+      setCheckoutError();
+    }
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const { token } = await stripe.createToken();
 
-    if (token) {
-      const order = await axios.post(
+    setProcessingTo(true);
+
+    const cardElement = elements.getElement("card");
+
+    try {
+      const { data: clientSecret } = await axios.post(
         "http://localhost:5001/api/v1/stripe/charge",
         {
-          // amount: "10000",
-          // selectedProduct.price.toString().replace(".", ""),
-          source: token.id,
           receiptEmail: state.ticket.customerEmail,
           ticket: state.ticket,
         }
       );
-      setReceiptUrl(order.data.charge.receipt_url);
+
+      const paymentMethodReq = await stripe.createPaymentMethod({
+        type: "card",
+        card: cardElement,
+        billing_details: state.ticket.customerEmail,
+      });
+
+      if (paymentMethodReq.error) {
+        setCheckoutError(paymentMethodReq.error.message);
+        setProcessingTo(false);
+        return;
+      }
+
+      const confirmPayment = await stripe.confirmCardPayment(clientSecret, {
+        payment_method: paymentMethodReq.paymentMethod.id,
+      });
+
+      console.log("confirmCardPayment", confirmPayment);
+
+      if (confirmPayment.error) {
+        setCheckoutError(confirmPayment.error.message);
+        setProcessingTo(false);
+        return;
+      }
+
+      setPaymentSuccess(true);
+    } catch (err) {
+      setCheckoutError(err.message);
     }
   };
 
-  if (receiptUrl) {
+  const cardElementOpts = {
+    iconStyle: "solid",
+    // style: iframeStyles,
+    hidePostalCode: true,
+  };
+
+  if (!paymentSucess) {
     return (
-      <div className="success">
-        <h2>Payment Successful!</h2>
-        <a href={receiptUrl}>View Receipt</a>
-        {/* <Link to="/">Home</Link> */}
+      <div className="checkout-form">
+        {/* <p>Amount: ${selectedProduct.price}</p> */}
+        <form onSubmit={handleSubmit}>
+          <CardElement
+            options={cardElementOpts}
+            onChange={handleCardDetailsChange}
+          />
+          <label>
+            <input
+              value={state.ticket.customerEmail}
+              onChange={
+                (event) =>
+                  setTicket({
+                    customerEmail: event.target.value,
+                    cinemaId: state.selectedCinema._id,
+                    cinemaName: state.selectedCinema.name,
+                  })
+                // eslint-disable-next-line react/jsx-curly-newline
+              }
+            />
+          </label>
+          <button
+            type="submit"
+            className="order-button"
+            disabled={isProcessing || !stripe}
+          >
+            {isProcessing ? "Processing..." : `Pay $${state.ticket.totalPrice}`}
+          </button>
+        </form>
+        {checkoutError ? <span>checkoutError</span> : null}
       </div>
     );
   }
-  return (
-    <div className="checkout-form">
-      {/* <p>Amount: ${selectedProduct.price}</p> */}
-      <form onSubmit={handleSubmit}>
-        <label>
-          Card details
-          <CardNumberElement />
-        </label>
-        <label>
-          Expiration date
-          <CardExpiryElement />
-        </label>
-        <label>
-          CVC
-          <CardCVCElement />
-        </label>
-        <label>
-          <input
-            value={state.ticket.customerEmail}
-            onChange={
-              (event) =>
-                setTicket({
-                  customerEmail: event.target.value,
-                  cinemaId: state.selectedCinema._id,
-                  cinemaName: state.selectedCinema.name,
-                })
-              // eslint-disable-next-line react/jsx-curly-newline
-            }
-          />
-        </label>
-        <button type="submit" className="order-button">
-          Pay
-        </button>
-      </form>
-    </div>
-  );
+  return <h1>payment successful</h1>;
 };
 
-export default injectStripe(CheckoutForm);
+export default CheckoutForm;
