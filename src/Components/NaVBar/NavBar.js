@@ -25,8 +25,6 @@ function NavBar() {
         <li>
           <select
             onChange={(e) => {
-              // console.log(e.target.value);
-              // console.log(i18nn());
               i18n.changeLanguage(e.target.value);
             }}
           >

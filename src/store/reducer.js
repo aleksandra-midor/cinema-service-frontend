@@ -20,7 +20,6 @@ const setSelectedCinema = (state, data) => {
 };
 
 const setTicket = (state, data) => {
-  console.log(data);
   return {
     ...state,
     ticket: {
@@ -42,7 +41,6 @@ const reducer = (state, action) => {
       return setSelectedCinema(state, action.data);
 
     case "setTicket":
-      console.log(action);
       return setTicket(state, action.data);
 
     default:

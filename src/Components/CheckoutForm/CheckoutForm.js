@@ -24,8 +24,7 @@ const CheckoutForm = ({ selectedProduct, stripe }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const { token, error } = await stripe.createToken();
-    console.log(stripe, error);
+    const { token } = await stripe.createToken();
 
     if (token) {
       const order = await axios.post(

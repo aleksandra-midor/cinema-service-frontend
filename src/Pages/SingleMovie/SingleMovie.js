@@ -12,7 +12,6 @@ function SingleMovie(props) {
 
   const [movieData, setMovieData] = useState();
   const [repertoireData, setRepertoireData] = useState([]);
-  console.log("--------------", repertoireData);
 
   const findMovie = useCallback(
     (id) => {
@@ -23,7 +22,6 @@ function SingleMovie(props) {
   );
 
   const setTicket = (data) => {
-    // console.log(data2);
     dispatch({ type: "setTicket", data });
   };
 
@@ -34,12 +32,11 @@ function SingleMovie(props) {
           <h3>{date}</h3>
           <ul>
             {houre.map((item) => (
-              <li className="Seances_Hour">
+              <li className="Seances_Hour" key={date + item}>
                 <p key={date + item}>{item}</p>
                 <Button
                   key={item}
                   onClick={() => {
-                    console.log(movieData.title, date, item);
                     setTicket({
                       movieId: movieData._id,
                       movieTitle: movieData.title,
@@ -100,7 +97,6 @@ function SingleMovie(props) {
           <h2>Nearest seances</h2>
           <ul>
             {dateSorter(repertoireData).map((el, i) => {
-              console.log(el);
               return (
                 // eslint-disable-next-line react/no-array-index-key
                 <li className="Seances_Date" key={i}>

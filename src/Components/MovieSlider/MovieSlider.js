@@ -4,11 +4,9 @@ import MovieImage from "../MovieImage/MovieImage";
 import "./MovieSlider.scss";
 
 function MovieSlider(props) {
-  console.log("----------------", props.movies.splice(3, props.count));
   return (
     <ul className="MovieSlider MovieSlider-large">
       {props.movies.slice(3, props.count + 3).map((el, i) => {
-        console.log();
         return (
           // eslint-disable-next-line react/no-array-index-key
           <li className="MovieSlider_Image" key={i}>
