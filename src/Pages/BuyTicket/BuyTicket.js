@@ -4,6 +4,7 @@ import InitialConfirmation from "./Steps/InitilaConfirmation/InitilaConfirmation
 import SelectSeats from "./Steps/SelectSeats/SelectSeats";
 import AppContext from "../../store/context";
 import Checkout from "./Steps/Checkout/Checkout";
+import ThankYou from "./Steps/ThankYou/ThankYou";
 
 const BuyTicket = () => {
   const { state } = useContext(AppContext);
@@ -46,7 +47,13 @@ const BuyTicket = () => {
             handlePreviousStep={handlePreviousStep}
           />
         ) : null}
-        {step === 4 ? <Checkout /> : null}
+        {step === 4 ? (
+          <Checkout
+            handleNextStep={handleNextStep}
+            handlePreviousStep={handlePreviousStep}
+          />
+        ) : null}
+        {step === 5 ? <ThankYou /> : null}
       </main>
     );
   }

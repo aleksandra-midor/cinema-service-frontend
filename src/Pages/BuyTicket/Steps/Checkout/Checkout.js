@@ -4,7 +4,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import CheckoutForm from "../../../../Components/CheckoutForm/CheckoutForm";
 // import AppContext from "../../../../store/context";
 
-const Checkout = () =>
+const Checkout = (props) =>
   // { selectedProduct, history }
   {
     // const { state } = useContext(AppContext);
@@ -18,7 +18,10 @@ const Checkout = () =>
 
     return (
       <Elements stripe={stripePromise}>
-        <CheckoutForm />
+        <CheckoutForm
+          handleNextStep={props.handleNextStep}
+          handlePreviousStep={props.handlePreviousStep}
+        />
       </Elements>
     );
   };

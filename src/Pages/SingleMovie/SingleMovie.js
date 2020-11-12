@@ -42,6 +42,8 @@ function SingleMovie(props) {
                       movieTitle: movieData.title,
                       date,
                       hour: item,
+                      cinemaId: state.selectedCinema._id,
+                      cinemaName: state.selectedCinema.name,
                     });
                     navigate("/ticket");
                   }}

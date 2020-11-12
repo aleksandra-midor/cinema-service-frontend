@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState, useContext } from "react";
@@ -7,8 +8,9 @@ import { navigate } from "@reach/router";
 import axios from "axios";
 import AppContext from "../../store/context";
 import "./CheckoutForm.scss";
+import Button from "../Button/Button";
 
-const CheckoutForm = () => {
+const CheckoutForm = (props) => {
   const { state, dispatch } = useContext(AppContext);
 
   if (!state.ticket.movieId) navigate("/");
@@ -17,10 +19,14 @@ const CheckoutForm = () => {
 
   const [isProcessing, setProcessingTo] = useState(false);
   const [checkoutError, setCheckoutError] = useState();
-  const [paymentSucess, setPaymentSuccess] = useState(false);
+  // const [paymentSucess, setPaymentSuccess] = useState(false);
+
+  const [email, setEmail] = useState();
 
   const stripe = useStripe();
   const elements = useElements();
+
+  // console.log(state.ticket);
 
   // const [email, setEmail] = useState("m.przybylowski@outlook.com");
 
@@ -45,9 +51,9 @@ const CheckoutForm = () => {
 
     try {
       const { data: clientSecret } = await axios.post(
-        "http://localhost:5001/api/v1/stripe/charge",
+        "http://localhost:5001/api/v1/payment/intent",
         {
-          receiptEmail: state.ticket.customerEmail,
+          receiptEmail: email,
           ticket: state.ticket,
         }
       );
@@ -55,7 +61,7 @@ const CheckoutForm = () => {
       const paymentMethodReq = await stripe.createPaymentMethod({
         type: "card",
         card: cardElement,
-        billing_details: state.ticket.customerEmail,
+        billing_details: email,
       });
 
       if (paymentMethodReq.error) {
@@ -68,15 +74,35 @@ const CheckoutForm = () => {
         payment_method: paymentMethodReq.paymentMethod.id,
       });
 
-      console.log("confirmCardPayment", confirmPayment);
-
       if (confirmPayment.error) {
         setCheckoutError(confirmPayment.error.message);
         setProcessingTo(false);
         return;
       }
 
-      setPaymentSuccess(true);
+      const updatedTicket = {
+        ...state.ticket,
+        customerEmail: email,
+        paymentId: confirmPayment.paymentIntent.id,
+        paymentStatus: "confirmed",
+      };
+
+      const confirmation = await axios.post(
+        "http://localhost:5001/api/v1/payment/confirm",
+        {
+          ticket: updatedTicket,
+        }
+      );
+
+      if (confirmation.error) {
+        setCheckoutError(confirmation.error.message);
+        setProcessingTo(false);
+        return;
+      }
+
+      setTicket(updatedTicket);
+      // setPaymentSuccess(true);
+      props.handleNextStep();
     } catch (err) {
       setCheckoutError(err.message);
     }
@@ -88,8 +114,8 @@ const CheckoutForm = () => {
     hidePostalCode: true,
   };
 
-  if (!paymentSucess) {
-    return (
+  return (
+    <>
       <div className="checkout-form">
         {/* <p>Amount: ${selectedProduct.price}</p> */}
         <form onSubmit={handleSubmit}>
@@ -99,16 +125,10 @@ const CheckoutForm = () => {
           />
           <label>
             <input
-              value={state.ticket.customerEmail}
-              onChange={
-                (event) =>
-                  setTicket({
-                    customerEmail: event.target.value,
-                    cinemaId: state.selectedCinema._id,
-                    cinemaName: state.selectedCinema.name,
-                  })
-                // eslint-disable-next-line react/jsx-curly-newline
-              }
+              name="email"
+              type="email"
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
             />
           </label>
           <button
@@ -116,14 +136,18 @@ const CheckoutForm = () => {
             className="order-button"
             disabled={isProcessing || !stripe}
           >
-            {isProcessing ? "Processing..." : `Pay $${state.ticket.totalPrice}`}
+            {isProcessing
+              ? "Processing..."
+              : `Pay SEK ${state.ticket.totalPrice}`}
           </button>
         </form>
-        {checkoutError ? <span>checkoutError</span> : null}
+        {checkoutError ? (
+          <span className="Message-error">checkoutError:{checkoutError}</span>
+        ) : null}
       </div>
-    );
-  }
-  return <h1>payment successful</h1>;
+      <Button onClick={() => props.handlePreviousStep()}>Back</Button>
+    </>
+  );
 };
 
 export default CheckoutForm;
