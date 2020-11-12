@@ -3,6 +3,8 @@ import axios from "axios";
 import AppContext from "../../store/context";
 import Modal from "../Modal/Modal";
 
+const baseUrl = process.env.REACT_APP_BASE_URL;
+
 function CinemaSelection() {
   const { state, dispatch } = useContext(AppContext);
   const { cinemas, selectedCinema } = state;
@@ -28,12 +30,10 @@ function CinemaSelection() {
       const fetchAllCinemas = async () => {
         const result = await axios({
           method: "get",
-          url: "http://localhost:5001/api/v1/cinemas",
+          url: `${baseUrl}/api/v1/cinemas`,
         });
-
         dispatch({ type: "setCinemas", data: result.data });
       };
-
       fetchAllCinemas();
     }
 
@@ -42,16 +42,19 @@ function CinemaSelection() {
     }
 
     if (!selectedCinema && cinemaLocalStorage) {
-      const fetchOneCinema = async () => {
-        const result = await axios({
-          method: "get",
-          url: `http://localhost:5001/api/v1/cinemas/${cinemaLocalStorage}`,
-        });
-        dispatch({ type: "setSelectedCinema", data: result.data });
-      };
-      fetchOneCinema();
+      // const fetchOneCinema = async () => {
+      // const result = await axios({
+      //   method: "get",
+      //   url: `http://localhost:5001/api/v1/cinemas/${cinemaLocalStorage}`,
+      // });
+      // };
+      dispatch({
+        type: "setSelectedCinema",
+        data: cinemas.find((cinema) => cinema._id === cinemaLocalStorage),
+      });
+      // fetchOneCinema();
     }
-  }, [cinemaLocalStorage, dispatch, modalCinemaId, selectedCinema]);
+  }, [cinemaLocalStorage, dispatch, modalCinemaId, selectedCinema, cinemas]);
 
   const handleCinemaSelection = () => {
     setSelectedCinema(cinemas.find((el) => el._id === modalCinemaId));

@@ -10,6 +10,8 @@ import AppContext from "../../store/context";
 import "./CheckoutForm.scss";
 import Button from "../Button/Button";
 
+const baseUrl = process.env.REACT_APP_BASE_URL;
+
 const CheckoutForm = (props) => {
   const { state, dispatch } = useContext(AppContext);
 
@@ -51,7 +53,7 @@ const CheckoutForm = (props) => {
 
     try {
       const { data: clientSecret } = await axios.post(
-        "http://localhost:5001/api/v1/payment/intent",
+        `${baseUrl}/api/v1/payment/intent`,
         {
           receiptEmail: email,
           ticket: state.ticket,
@@ -88,7 +90,7 @@ const CheckoutForm = (props) => {
       };
 
       const confirmation = await axios.post(
-        "http://localhost:5001/api/v1/payment/confirm",
+        `${baseUrl}/api/v1/payment/confirm`,
         {
           ticket: updatedTicket,
         }

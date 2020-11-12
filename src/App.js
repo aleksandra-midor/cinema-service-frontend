@@ -12,7 +12,7 @@ import AllMovies from "./Pages/AllMovies/AllMovies";
 import CinemaSelection from "./Components/CinemaSelection/CinemaSelection";
 import BuyTicket from "./Pages/BuyTicket/BuyTicket";
 
-// const baseUrl = process.env.REACT_APP_BASE_URL;
+const baseUrl = process.env.REACT_APP_BASE_URL;
 
 function App() {
   const [state, dispatch] = useReducer(store.reducer, store.initialState);
@@ -21,7 +21,7 @@ function App() {
     const fetchAllMovies = async () => {
       const result = await axios({
         method: "get",
-        url: "http://localhost:5001/api/v1/movies",
+        url: `${baseUrl}/api/v1/movies`,
       });
 
       dispatch({ type: "setMovies", data: result.data });

@@ -3,6 +3,8 @@ import axios from "axios";
 import AppContext from "../../../../store/context";
 import Button from "../../../../Components/Button/Button";
 
+const baseUrl = process.env.REACT_APP_BASE_URL;
+
 const SelectSeats = (props) => {
   const { state, dispatch } = useContext(AppContext);
   const [selectedSeats, setSelectedSeats] = useState([]);
@@ -16,11 +18,9 @@ const SelectSeats = (props) => {
     const fetchUnavailableSeats = async () => {
       const result = await axios({
         method: "get",
-        url: `http://localhost:5001/api/v1/bookedSeats/${
-          state.selectedCinema._id
-        }/${state.ticket.movieId}/${
-          state.ticket.date
-        }/${state.ticket.hour.replace(":", "_")}`,
+        url: `${baseUrl}/api/v1/bookedSeats/${state.selectedCinema._id}/${
+          state.ticket.movieId
+        }/${state.ticket.date}/${state.ticket.hour.replace(":", "_")}`,
       });
 
       setUnavailableSeats(result.data);
