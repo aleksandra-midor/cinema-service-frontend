@@ -17,12 +17,14 @@ const Checkout = (props) =>
     const stripePromise = loadStripe(stripeKey);
 
     return (
-      <Elements stripe={stripePromise}>
-        <CheckoutForm
-          handleNextStep={props.handleNextStep}
-          handlePreviousStep={props.handlePreviousStep}
-        />
-      </Elements>
+      <section className="CheckoutStep">
+        <Elements stripe={stripePromise}>
+          <CheckoutForm
+            handleNextStep={props.handleNextStep}
+            handlePreviousStep={props.handlePreviousStep}
+          />
+        </Elements>
+      </section>
     );
   };
 export default Checkout;

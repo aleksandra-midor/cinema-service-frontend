@@ -6,6 +6,8 @@ import AppContext from "../../store/context";
 import Checkout from "./Steps/Checkout/Checkout";
 import ThankYou from "./Steps/ThankYou/ThankYou";
 
+import "./BuyTicket.scss";
+
 const BuyTicket = () => {
   const { state } = useContext(AppContext);
   const [step, setStep] = useState(1);
@@ -28,7 +30,7 @@ const BuyTicket = () => {
 
   if (state.ticket.movieId && state.selectedCinema) {
     return (
-      <main>
+      <main className="BuyTicketPage">
         {step === 1 ? (
           <>
             <SelectSeats

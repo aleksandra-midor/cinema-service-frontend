@@ -50,7 +50,7 @@ const SelectSeats = (props) => {
   }
 
   return (
-    <main>
+    <section className="SelectSeatsStep">
       <h2>Select your seats</h2>
       <ul>
         {allSeats.map((seat) => {
@@ -80,7 +80,7 @@ const SelectSeats = (props) => {
       >
         Continue
       </Button>
-    </main>
+    </section>
   );
 };
 

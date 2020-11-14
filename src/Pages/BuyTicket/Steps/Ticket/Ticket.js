@@ -6,7 +6,8 @@ const Ticket = () => {
   const { ticket } = state;
 
   return (
-    <article>
+    <section className="Ticket">
+      <h1>Your Ticket</h1>
       <h3>Movie:</h3>
       <p>{ticket.movieTitle}</p>
       <h3>Date:</h3>
@@ -28,7 +29,7 @@ const Ticket = () => {
           <p>{ticket.totalPrice}</p>
         </>
       ) : null}
-    </article>
+    </section>
   );
 };
 

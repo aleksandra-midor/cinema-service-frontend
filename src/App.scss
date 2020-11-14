@@ -1,8 +1,14 @@
-@import './styles/variables.scss';
+@import "./styles/variables.scss";
 
 .App {
   background-color: $color-background;
   height: 100vh;
+  // margin-top: $size-navBar-height;
   color: $text-color-default;
-}
+  overflow: hidden;
 
+  .App_Content {
+    height: calc(100vh - #{$size-navBar-height});
+    overflow-y: auto;
+  }
+}

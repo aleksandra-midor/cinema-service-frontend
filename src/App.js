@@ -34,13 +34,15 @@ function App() {
     <AppContext.Provider value={{ state, dispatch }}>
       <div className="App">
         <NavBar />
+        <div className="App_Content">
+          <Router>
+            <MainPage path="/" />
+            <SingleMovie path="movie/:movieId" />
+            <AllMovies path="movies" />
+            <BuyTicket path="ticket" />
+          </Router>
+        </div>
         <CinemaSelection />
-        <Router>
-          <MainPage path="/" />
-          <SingleMovie path="movie/:movieId" />
-          <AllMovies path="movies" />
-          <BuyTicket path="ticket" />
-        </Router>
       </div>
     </AppContext.Provider>
   );
