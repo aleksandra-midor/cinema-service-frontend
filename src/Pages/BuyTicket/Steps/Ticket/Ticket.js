@@ -1,8 +1,7 @@
 import React, { useContext } from "react";
 import AppContext from "../../../../store/context";
-import Button from "../../../../Components/Button/Button";
 
-const InitialConfirmation = (props) => {
+const Ticket = () => {
   const { state } = useContext(AppContext);
   const { ticket } = state;
 
@@ -29,10 +28,8 @@ const InitialConfirmation = (props) => {
           <p>{ticket.totalPrice}</p>
         </>
       ) : null}
-      <Button onClick={() => props.handlePreviousStep()}>Back</Button>
-      <Button onClick={() => props.handleNextStep()}>Next</Button>
     </article>
   );
 };
 
-export default InitialConfirmation;
+export default Ticket;

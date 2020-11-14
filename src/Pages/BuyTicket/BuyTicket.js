@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { navigate } from "@reach/router";
-import InitialConfirmation from "./Steps/InitilaConfirmation/InitilaConfirmation";
+import Ticket from "./Steps/Ticket/Ticket";
 import SelectSeats from "./Steps/SelectSeats/SelectSeats";
 import AppContext from "../../store/context";
 import Checkout from "./Steps/Checkout/Checkout";
@@ -30,30 +30,32 @@ const BuyTicket = () => {
     return (
       <main>
         {step === 1 ? (
-          <InitialConfirmation
-            handleNextStep={handleNextStep}
-            handlePreviousStep={handlePreviousStep}
-          />
+          <>
+            <SelectSeats
+              handleNextStep={handleNextStep}
+              handlePreviousStep={handlePreviousStep}
+            />
+            <Ticket />
+          </>
         ) : null}
         {step === 2 ? (
-          <SelectSeats
-            handleNextStep={handleNextStep}
-            handlePreviousStep={handlePreviousStep}
-          />
+          <>
+            <Checkout
+              handleNextStep={handleNextStep}
+              handlePreviousStep={handlePreviousStep}
+            />
+            <Ticket />
+          </>
         ) : null}
         {step === 3 ? (
-          <InitialConfirmation
-            handleNextStep={handleNextStep}
-            handlePreviousStep={handlePreviousStep}
-          />
+          <>
+            <ThankYou />
+            <Ticket
+              handleNextStep={handleNextStep}
+              handlePreviousStep={handlePreviousStep}
+            />
+          </>
         ) : null}
-        {step === 4 ? (
-          <Checkout
-            handleNextStep={handleNextStep}
-            handlePreviousStep={handlePreviousStep}
-          />
-        ) : null}
-        {step === 5 ? <ThankYou /> : null}
       </main>
     );
   }
