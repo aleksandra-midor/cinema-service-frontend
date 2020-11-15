@@ -18,7 +18,7 @@ function AllMovies() {
             <li key={i}>
               <article className="AllMovies_Item">
                 <Link to={`/movie/${el._id}`}>
-                  <Image src={el.posterurl} title={el.originalTitle} />
+                  <Image imageName={el.posterImage} title={el.originalTitle} />
                 </Link>
                 <section className="Item_Details">
                   <Link to={`/movie/${el._id}`}>

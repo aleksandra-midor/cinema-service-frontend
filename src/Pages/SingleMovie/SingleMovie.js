@@ -120,7 +120,7 @@ function SingleMovie(props) {
   if (movieData) {
     return (
       <main className="SingleMovie">
-        <Image src={movieData.posterurl} title={movieData.title} />
+        <Image imageName={movieData.posterImage} title={movieData.title} />
         <section className="SingleMovie_Info">
           <h1>{movieData.originalTitle}</h1>
           <p>{movieData.storyline}</p>
