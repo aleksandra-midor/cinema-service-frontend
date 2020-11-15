@@ -1,0 +1,65 @@
+@import "../../../../styles/variables.scss";
+
+.SelectSeatsStep_Container {
+  max-width: $content-width-max;
+  padding: $padding-default;
+  margin: auto;
+
+  .SelectSeatsStep_Screen {
+    width: 364px;
+    background: $text-color-default;
+    color: black;
+    margin-bottom: 2rem;
+    padding: 4px;
+    text-align: center;
+  }
+}
+
+.SeatSelector {
+  // width: 600px;
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(5, 60px);
+  grid-template-rows: repeat(5, 60px);
+  grid-auto-flow: column;
+
+  label.SeatSelector_Seat {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+    color: black;
+    font-size: 1.25rem;
+    font-weight: bold;
+
+    .SeatSelector_Chair {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      background: gray;
+      z-index: -1;
+      border-radius: 50%;
+    }
+
+    &:hover .SeatSelector_Chair {
+      // background: white;
+      opacity: 0.8;
+    }
+
+    input {
+      display: none;
+
+      &:checked ~ .SeatSelector_Chair {
+        background: green;
+      }
+      &:disabled ~ .SeatSelector_Chair {
+        background: $color-primary;
+        cursor: not-allowed;
+      }
+    }
+  }
+}

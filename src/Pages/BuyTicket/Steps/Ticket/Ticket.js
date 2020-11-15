@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
 import AppContext from "../../../../store/context";
 
+import "./Ticket.scss";
+
 const Ticket = () => {
   const { state } = useContext(AppContext);
   const { ticket } = state;
@@ -14,6 +16,8 @@ const Ticket = () => {
       <p>{ticket.date}</p>
       <h3>Hour:</h3>
       <p>{ticket.hour}</p>
+      {/* <h3>Cinema:</h3>
+      <p>{ticket.cinemaName}</p> */}
       <h3>Single ticket price:</h3>
       <p>
         {state.selectedCinema.ticketPrice}

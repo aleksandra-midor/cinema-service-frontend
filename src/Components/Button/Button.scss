@@ -10,7 +10,13 @@
   padding: 1rem;
   cursor: pointer;
 
-  &:hover{
+  &:disabled {
+    opacity: 0.5;
+    background: gray;
+    cursor: default;
+  }
+
+  &:hover:not(:disabled) {
     background: $color-primary
   }
 

@@ -44,6 +44,7 @@ function SingleMovie(props) {
                       hour: item,
                       cinemaId: state.selectedCinema._id,
                       cinemaName: state.selectedCinema.name,
+                      seats: [],
                     });
                     navigate("/ticket");
                   }}

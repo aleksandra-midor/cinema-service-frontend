@@ -3,11 +3,13 @@ import axios from "axios";
 import AppContext from "../../../../store/context";
 import Button from "../../../../Components/Button/Button";
 
+import "./SelectSeats.scss";
+
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
 const SelectSeats = (props) => {
   const { state, dispatch } = useContext(AppContext);
-  const [selectedSeats, setSelectedSeats] = useState([]);
+  // const [selectedSeats, setSelectedSeats] = useState([]);
   const [unavailableSeats, setUnavailableSeats] = useState([]);
 
   const setTicket = (data) => {
@@ -29,18 +31,21 @@ const SelectSeats = (props) => {
   }, []);
 
   const handleSelectedSeats = (el) => {
-    const newState = [...selectedSeats];
+    let newState = [];
+
+    if (state.ticket.seats) {
+      newState = [...state.ticket.seats];
+    }
     const foundElement = newState.find((element) => element === el);
     if (!foundElement) {
       newState.push(el);
     } else {
-      newState.pop(el);
+      newState = newState.filter((item) => item !== foundElement);
     }
-    setSelectedSeats(newState);
-  };
-
-  const finalPrice = () => {
-    return state.selectedCinema.ticketPrice * selectedSeats.length;
+    setTicket({
+      seats: newState,
+      totalPrice: state.selectedCinema.ticketPrice * newState.length,
+    });
   };
 
   const nrOfSeats = 25;
@@ -51,35 +56,45 @@ const SelectSeats = (props) => {
 
   return (
     <section className="SelectSeatsStep">
-      <h2>Select your seats</h2>
-      <ul>
-        {allSeats.map((seat) => {
-          return (
-            <li key={seat}>
-              <input
-                type="checkbox"
-                disabled={unavailableSeats.find((el) => el === seat)}
-                id={`seat-${seat}`}
-                value={seat}
-                onChange={() => handleSelectedSeats(seat)}
-              />
-              <label htmlFor={`seat-${seat}`}>{seat}</label>
-            </li>
-          );
-        })}
-      </ul>
-      <Button onClick={() => props.handlePreviousStep()}>Back</Button>
-      <Button
-        onClick={() => {
-          setTicket({
-            seats: selectedSeats,
-            totalPrice: finalPrice(),
-          });
-          props.handleNextStep();
-        }}
-      >
-        Continue
-      </Button>
+      <div className="SelectSeatsStep_Container">
+        <h2>Select your seats</h2>
+
+        <div className="SelectSeatsStep_Screen">Screen</div>
+        <ul className="SeatSelector">
+          {allSeats.map((seat) => {
+            return (
+              <li key={seat}>
+                <label className="SeatSelector_Seat" htmlFor={`seat-${seat}`}>
+                  <input
+                    type="checkbox"
+                    disabled={unavailableSeats.find((el) => el === seat)}
+                    id={`seat-${seat}`}
+                    value={seat}
+                    onChange={() => {
+                      handleSelectedSeats(seat);
+                    }}
+                  />
+                  <span className="SeatSelector_Chair" />
+                  {seat}
+                </label>
+              </li>
+            );
+          })}
+        </ul>
+        <Button onClick={() => props.handlePreviousStep()}>Back</Button>
+        <Button
+          // disabled={state.ticket.seats.length === 0}
+          onClick={() => {
+            // setTicket({
+            //   seats: selectedSeats,
+            //   totalPrice: finalPrice(),
+            // });
+            props.handleNextStep();
+          }}
+        >
+          Continue
+        </Button>
+      </div>
     </section>
   );
 };

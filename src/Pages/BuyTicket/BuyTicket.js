@@ -52,10 +52,6 @@ const BuyTicket = () => {
         {step === 3 ? (
           <>
             <ThankYou />
-            <Ticket
-              handleNextStep={handleNextStep}
-              handlePreviousStep={handlePreviousStep}
-            />
           </>
         ) : null}
       </main>

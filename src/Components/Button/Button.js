@@ -6,6 +6,7 @@ const Button = ({
   color,
   // variant,
   onClick,
+  disabled,
 }) => {
   // const cssClasses = ["Button", "test",
   // color === "primary " ? "Button-primary" : ""
@@ -17,7 +18,12 @@ const Button = ({
   }
 
   return (
-    <button type="button" onClick={onClick} className={cssClasses.join(" ")}>
+    <button
+      disabled={disabled}
+      type="button"
+      onClick={onClick}
+      className={cssClasses.join(" ")}
+    >
       {children}
     </button>
   );
