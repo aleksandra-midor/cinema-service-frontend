@@ -73,6 +73,7 @@ const SelectSeats = (props) => {
                     onChange={() => {
                       handleSelectedSeats(seat);
                     }}
+                    checked={state.ticket.seats.find((item) => item === seat)}
                   />
                   <span className="SeatSelector_Chair" />
                   {seat}
