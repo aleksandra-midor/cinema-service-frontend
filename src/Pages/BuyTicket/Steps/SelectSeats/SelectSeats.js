@@ -73,7 +73,7 @@ const SelectSeats = (props) => {
                     onChange={() => {
                       handleSelectedSeats(seat);
                     }}
-                    checked={state.ticket.seats.find((item) => item === seat)}
+                    checked={!!state.ticket.seats.find((item) => item === seat)}
                   />
                   <span className="SeatSelector_Chair" />
                   {seat}
@@ -84,12 +84,8 @@ const SelectSeats = (props) => {
         </ul>
         <Button onClick={() => props.handlePreviousStep()}>Back</Button>
         <Button
-          // disabled={state.ticket.seats.length === 0}
+          disabled={state.ticket.seats.length === 0}
           onClick={() => {
-            // setTicket({
-            //   seats: selectedSeats,
-            //   totalPrice: finalPrice(),
-            // });
             props.handleNextStep();
           }}
         >
