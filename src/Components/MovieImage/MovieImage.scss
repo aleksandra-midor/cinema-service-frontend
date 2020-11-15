@@ -1,9 +1,33 @@
+@import "../../styles/variables.scss";
+
 .MovieImage {
   height: 100%;
   position: relative;
 
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    height: 30%;
+    width: 100%;
+    background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.9136029411764706) 0%,
+      rgba(0, 0, 0, 0.8435749299719888) 31%,
+      rgba(0, 0, 0, 0.41780462184873945) 67%,
+      rgba(0, 0, 0, 0) 100%
+    );
+  }
+
   .MovieImage_Title {
     position: absolute;
-    bottom: 10px;
+    bottom: 1rem;
+    left: 1rem;
+    margin: 0;
+    width: 100%;
+    font-size: 1.5rem;
+    font-weight: bold;
+    transition: $animation-default;
   }
 }

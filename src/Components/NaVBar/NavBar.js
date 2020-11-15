@@ -5,7 +5,6 @@ import "./NavBar.scss";
 // import { useTranslation } from "react-i18next";
 import i18n from "../../i18n/i18n";
 import AppContext from "../../store/context";
-import Button from "../Button/Button";
 
 function NavBar() {
   // const { i18 } = useTranslation();
@@ -18,12 +17,14 @@ function NavBar() {
 
   return (
     <header className="NavBar">
-      <Link to="/">
-        <p className="NavBar_Logo">Cinema Paradiso</p>
+      <Link to="/" className="NavBar_Logo">
+        <img src="/assets/icons/logo.svg" alt="cinema paradiso logo" />
+        Cinema Paradiso
       </Link>
       <ul className="NavBar_List">
         <li>
           <select
+            className="NavBar_Link"
             onChange={(e) => {
               i18n.changeLanguage(e.target.value);
             }}
@@ -32,13 +33,19 @@ function NavBar() {
             <option value="pl">PL</option>
           </select>
         </li>
-        <Link to="/movies">
-          <li>movies</li>
-        </Link>
         <li>
-          <Button onClick={() => handleSelectCinema()}>
+          <Link className="NavBar_Link" to="/movies">
+            movies
+          </Link>
+        </li>
+        <li>
+          <button
+            type="button"
+            className="NavBar_Link"
+            onClick={() => handleSelectCinema()}
+          >
             {selectedCinema ? selectedCinema.city : null}
-          </Button>
+          </button>
         </li>
       </ul>
     </header>

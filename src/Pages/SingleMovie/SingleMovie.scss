@@ -14,9 +14,23 @@
   }
 }
 
+.Item_Details {
+  &:hover {
+    h3 {
+      color: $color-primary;
+    }
+  }
+}
+
 .Seances {
   .Seances_Hour {
     justify-content: space-between;
     display: flex;
+
+    &:hover {
+      p {
+        color: $color-primary;
+      }
+    }
   }
 }
