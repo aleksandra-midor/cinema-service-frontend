@@ -17,7 +17,7 @@ function AllMovies() {
             // eslint-disable-next-line react/no-array-index-key
             <li key={i}>
               <article className="AllMovies_Item">
-                <Link to={`/movie/${el._id}`}>
+                <Link to={`/movie/${el.movieId}`}>
                   <Image imageName={el.posterImage} title={el.originalTitle} />
                 </Link>
                 <section className="Item_Details">

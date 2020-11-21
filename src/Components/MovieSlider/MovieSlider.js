@@ -14,7 +14,7 @@ function MovieSlider(props) {
             className="MovieSlider_Image"
             key={el._id}
           >
-            <Link to={`/movie/${el._id}`}>
+            <Link to={`/movie/${el.movieId}`}>
               <MovieImage src={el.posterImage} title={el.title} />
             </Link>
           </li>

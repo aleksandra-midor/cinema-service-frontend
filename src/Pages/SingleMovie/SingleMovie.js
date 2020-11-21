@@ -15,9 +15,8 @@ function SingleMovie(props) {
 
   const findMovie = useCallback(
     (id) => {
-      return state.movies.find((amovie) => amovie._id === id);
+      return state.movies.find((amovie) => amovie.movieId === id);
     },
-
     [state]
   );
 
@@ -75,7 +74,7 @@ function SingleMovie(props) {
   };
 
   useEffect(() => {
-    if (!movieData || (movieData && movieData._id !== movieId)) {
+    if (!movieData || (movieData && movieData.movieId !== movieId)) {
       const foundMovie = findMovie(movieId);
 
       if (foundMovie) {
@@ -84,14 +83,18 @@ function SingleMovie(props) {
     }
 
     if (state.selectedCinema) {
-      const foundRepertoire = state.selectedCinema.repertoire.find(
-        (el) => el.movieId === movieId
-      );
+      console.log("reppertoire", state.selectedCinema.repertoire);
+      const foundRepertoire = state.selectedCinema.repertoire.find((el) => {
+        console.log("el:", el.movieId);
+        console.log("movieId:", movieId);
+        return el.movieId === movieId;
+      });
+      // console.log("movieId", movieId);
       if (foundRepertoire) {
         setRepertoireData(foundRepertoire.seance);
       }
     }
-  }, [movieData, movieId, findMovie]);
+  }, [movieData, movieId, findMovie, state.selectedCinema]);
 
   function repertoireRender() {
     if (repertoireData.length > 0) {
@@ -130,6 +133,6 @@ function SingleMovie(props) {
     );
   }
 
-  return <>loading</>;
+  return <p>loading</p>;
 }
 export default SingleMovie;
