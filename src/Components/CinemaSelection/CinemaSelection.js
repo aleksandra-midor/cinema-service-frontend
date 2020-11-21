@@ -41,18 +41,22 @@ function CinemaSelection() {
       setModalVisible(true);
     }
 
-    if (!selectedCinema && cinemaLocalStorage) {
-      // const fetchOneCinema = async () => {
-      // const result = await axios({
-      //   method: "get",
-      //   url: `http://localhost:5001/api/v1/cinemas/${cinemaLocalStorage}`,
-      // });
-      // };
-      dispatch({
-        type: "setSelectedCinema",
-        data: cinemas.find((cinema) => cinema._id === cinemaLocalStorage),
-      });
-      // fetchOneCinema();
+    if (cinemas.length > 0 && !selectedCinema && cinemaLocalStorage) {
+      const foundCinema = cinemas.find(
+        (cinema) => cinema._id === cinemaLocalStorage
+      );
+      if (foundCinema) {
+        dispatch({
+          type: "setSelectedCinema",
+          data: foundCinema,
+        });
+      } else {
+        dispatch({
+          type: "setSelectedCinema",
+          data: null,
+        });
+        localStorage.removeItem("selectedCinemaId");
+      }
     }
   }, [cinemaLocalStorage, dispatch, modalCinemaId, selectedCinema, cinemas]);
 
