@@ -5,7 +5,7 @@ import Image from "../Image/Image";
 function MovieImage(props) {
   return (
     <div className="MovieImage">
-      <Image imageName={props.src} title={props.title} />
+      <Image width={450} imageName={props.src} title={props.title} />
       <p className="MovieImage_Title">{props.title}</p>
     </div>
   );

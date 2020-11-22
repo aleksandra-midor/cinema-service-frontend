@@ -50,6 +50,7 @@ function AllMovies() {
                 <article className="AllMovies_Item">
                   <Link to={`/movie/${el.movieId}`}>
                     <Image
+                      width={100}
                       imageName={el.posterImage}
                       title={el.title[language]}
                     />

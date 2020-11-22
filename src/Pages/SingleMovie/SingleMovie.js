@@ -85,10 +85,7 @@ function SingleMovie(props) {
     }
 
     if (state.selectedCinema) {
-      console.log("reppertoire", state.selectedCinema.repertoire);
       const foundRepertoire = state.selectedCinema.repertoire.find((el) => {
-        console.log("el:", el.movieId);
-        console.log("movieId:", movieId);
         return el.movieId === movieId;
       });
       // console.log("movieId", movieId);
@@ -128,6 +125,7 @@ function SingleMovie(props) {
         <Image
           imageName={movieData.posterImage}
           title={movieData.title[language]}
+          width={1200}
         />
         <section className="SingleMovie_Info">
           <h1>{movieData.title[language]}</h1>
