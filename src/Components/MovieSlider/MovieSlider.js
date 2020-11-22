@@ -6,7 +6,7 @@ import "./MovieSlider.scss";
 function MovieSlider(props) {
   return (
     <ul data-testid="MovieSlider" className="MovieSlider MovieSlider-large">
-      {props.movies.slice(3, props.count + 3).map((el) => {
+      {props.movies.slice(0, props.count).map((el) => {
         return (
           // eslint-disable-next-line react/no-array-index-key
           <li

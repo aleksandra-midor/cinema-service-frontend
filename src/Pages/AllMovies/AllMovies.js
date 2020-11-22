@@ -8,11 +8,12 @@ import AppContext from "../../store/context";
 function AllMovies() {
   const { t } = useTranslation();
   const { state } = useContext(AppContext);
+
   return (
     <main className="AllMovies">
       <h1>{t("allMovies:allMovies")}</h1>
       <ul className="AllMovies_List">
-        {state.movies.map((el, i) => {
+        {state.selectedMovies.map((el, i) => {
           return (
             // eslint-disable-next-line react/no-array-index-key
             <li key={i}>
@@ -21,7 +22,7 @@ function AllMovies() {
                   <Image imageName={el.posterImage} title={el.originalTitle} />
                 </Link>
                 <section className="Item_Details">
-                  <Link to={`/movie/${el._id}`}>
+                  <Link to={`/movie/${el.movieId}`}>
                     <h2>{el.originalTitle}</h2>
                   </Link>
                   <p>{el.genres}</p>
@@ -35,5 +36,4 @@ function AllMovies() {
     </main>
   );
 }
-
 export default AllMovies;

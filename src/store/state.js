@@ -2,6 +2,7 @@ const state = {
   movies: [],
   cinemas: [],
   selectedCinema: undefined,
+  selectedMovies: [],
   ticket: {},
 };
 

@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import AppContext from "../../store/context";
 import Modal from "../Modal/Modal";
@@ -19,11 +19,32 @@ function CinemaSelection() {
   const setSelectedCinema = (data) =>
     dispatch({ type: "setSelectedCinema", data });
 
+  const setSelectedMovies = useCallback(
+    (data) => {
+      dispatch({ type: "setSelectedMovies", data });
+    },
+    [dispatch]
+  );
+
   useEffect(() => {
     if (cinemas.length > 0 && !modalCinemaId) {
       setModalCinemaId(cinemas[0]._id);
     }
   }, [cinemas, modalCinemaId]);
+
+  useEffect(() => {
+    if (state.selectedCinema) {
+      const filteredMovies = state.movies.filter((film) => {
+        const foundMovie = state.selectedCinema.repertoire.find((movie) => {
+          return movie.movieId === film.movieId;
+        });
+
+        return !!foundMovie;
+        // return foundMovie ? true : false;
+      });
+      setSelectedMovies(filteredMovies);
+    }
+  }, [state.selectedCinema, state.movies, setSelectedMovies]);
 
   useEffect(() => {
     if (selectedCinema === undefined) {

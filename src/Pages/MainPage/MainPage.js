@@ -9,7 +9,7 @@ function MainPage() {
       <header className="MainPage_Header">
         <h1>Premieres</h1>
       </header>
-      <MovieSlider count={5} movies={state.movies} />
+      <MovieSlider count={5} movies={state.selectedMovies} />
     </main>
   );
 }

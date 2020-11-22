@@ -15,7 +15,7 @@ function SingleMovie(props) {
 
   const findMovie = useCallback(
     (id) => {
-      return state.movies.find((amovie) => amovie.movieId === id);
+      return state.selectedMovies.find((amovie) => amovie.movieId === id);
     },
     [state]
   );

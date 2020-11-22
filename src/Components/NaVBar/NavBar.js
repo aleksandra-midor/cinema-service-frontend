@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import { Link } from "@reach/router";
-import "./NavBar.scss";
-
 // import { useTranslation } from "react-i18next";
 import i18n from "../../i18n/i18n";
 import AppContext from "../../store/context";
+// eslint-disable-next-line import/no-unresolved
+import "./NavBar.scss";
 
 function NavBar() {
   // const { i18 } = useTranslation();
