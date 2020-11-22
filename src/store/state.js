@@ -4,6 +4,7 @@ const state = {
   selectedCinema: undefined,
   selectedMovies: [],
   ticket: {},
+  selectedLanguage: "sv",
 };
 
 export default state;

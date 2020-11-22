@@ -2,8 +2,10 @@ import React from "react";
 import { Link } from "@reach/router";
 import MovieImage from "../MovieImage/MovieImage";
 import "./MovieSlider.scss";
+import i18n from "../../i18n/i18n";
 
 function MovieSlider(props) {
+  const { language } = i18n;
   return (
     <ul data-testid="MovieSlider" className="MovieSlider MovieSlider-large">
       {props.movies.slice(0, props.count).map((el) => {
@@ -15,7 +17,7 @@ function MovieSlider(props) {
             key={el._id}
           >
             <Link to={`/movie/${el.movieId}`}>
-              <MovieImage src={el.posterImage} title={el.title} />
+              <MovieImage src={el.posterImage} title={el.title[language]} />
             </Link>
           </li>
         );

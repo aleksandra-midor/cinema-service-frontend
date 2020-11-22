@@ -15,6 +15,8 @@ function NavBar() {
     dispatch({ type: "setSelectedCinema", data: null });
   };
 
+  console.log(i18n.language);
+
   return (
     <header className="NavBar">
       <Link to="/" className="NavBar_Logo">
@@ -25,6 +27,7 @@ function NavBar() {
         <li>
           <select
             className="NavBar_Link"
+            select={i18n.language}
             onChange={(e) => {
               i18n.changeLanguage(e.target.value);
             }}

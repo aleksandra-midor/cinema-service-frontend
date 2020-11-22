@@ -4,10 +4,12 @@ import Image from "../../Components/Image/Image";
 import "./SingleMovie.scss";
 import AppContext from "../../store/context";
 import Button from "../../Components/Button/Button";
+import i18n from "../../i18n/i18n";
 
 function SingleMovie(props) {
   const { movieId } = props;
   const { state, dispatch } = useContext(AppContext);
+  const { language } = i18n;
   // const { ticket } = state;
 
   const [movieData, setMovieData] = useState();
@@ -38,7 +40,7 @@ function SingleMovie(props) {
                   onClick={() => {
                     setTicket({
                       movieId: movieData._id,
-                      movieTitle: movieData.title,
+                      movieTitle: movieData.title[language],
                       date,
                       hour: item,
                       cinemaId: state.selectedCinema._id,
@@ -123,10 +125,13 @@ function SingleMovie(props) {
   if (movieData) {
     return (
       <main className="SingleMovie">
-        <Image imageName={movieData.posterImage} title={movieData.title} />
+        <Image
+          imageName={movieData.posterImage}
+          title={movieData.title[language]}
+        />
         <section className="SingleMovie_Info">
-          <h1>{movieData.originalTitle}</h1>
-          <p>{movieData.storyline}</p>
+          <h1>{movieData.title[language]}</h1>
+          <p>{movieData.storyline[language]}</p>
           {repertoireRender()}
         </section>
       </main>
