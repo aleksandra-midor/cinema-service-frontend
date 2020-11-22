@@ -3,6 +3,8 @@ import axios from "axios";
 import AppContext from "../../store/context";
 import Modal from "../Modal/Modal";
 
+import "./CinemaSelection.scss";
+
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
 function CinemaSelection() {
@@ -11,10 +13,11 @@ function CinemaSelection() {
   const [modalVisible, setModalVisible] = useState(false);
   // eslint-disable-next-line no-unused-vars
   const [modalCinemaId, setModalCinemaId] = useState();
-
-  const [cinemaLocalStorage] = useState(
+  const [cinemaLocalStorage, setCinemaLocalStorage] = useState(
     localStorage.getItem("selectedCinemaId")
   );
+
+  console.log("cinemaLocalStorage", cinemaLocalStorage);
 
   const setSelectedCinema = (data) =>
     dispatch({ type: "setSelectedCinema", data });
@@ -84,13 +87,14 @@ function CinemaSelection() {
   const handleCinemaSelection = () => {
     setSelectedCinema(cinemas.find((el) => el._id === modalCinemaId));
     localStorage.setItem("selectedCinemaId", modalCinemaId);
+    setCinemaLocalStorage(modalCinemaId);
     setModalVisible(false);
   };
 
   const displayCinemas = cinemas.map((el) => {
     return (
       // eslint-disable-next-line jsx-a11y/label-has-associated-control
-      <label key={el._id}>
+      <label key={el._id} className="CinemaSelection_Input">
         <input
           type="radio"
           name="cinema"

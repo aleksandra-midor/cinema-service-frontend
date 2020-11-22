@@ -8,10 +8,10 @@ const Modal = ({ children, visible, onClickOk, title }) => {
       <div className="Modal">
         <section className="Modal_Inner">
           <p className="Modal_Title">{title}</p>
-          {children}
-          <footer>
+          <div className="Modal_Content">{children}</div>
+          <footer className="Modal_Footer">
             <Button onClick={onClickOk} color="primary">
-              Button
+              Confirm
             </Button>
           </footer>
         </section>
