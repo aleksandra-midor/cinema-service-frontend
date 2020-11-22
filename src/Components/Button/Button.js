@@ -7,6 +7,7 @@ const Button = ({
   // variant,
   onClick,
   disabled,
+  className,
 }) => {
   // const cssClasses = ["Button", "test",
   // color === "primary " ? "Button-primary" : ""
@@ -15,6 +16,9 @@ const Button = ({
   const cssClasses = ["Button"];
   if (color === "primary") {
     cssClasses.push("Button-primary");
+  }
+  if (className) {
+    cssClasses.push(className);
   }
 
   return (

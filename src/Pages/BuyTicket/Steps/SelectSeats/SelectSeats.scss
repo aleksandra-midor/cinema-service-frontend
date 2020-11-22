@@ -1,7 +1,7 @@
 @import "../../../../styles/variables.scss";
 
 .SelectSeatsStep_Container {
-  max-width: $content-width-max;
+  max-width: 600px;
   padding: $padding-default;
   margin: auto;
 
@@ -16,7 +16,6 @@
 }
 
 .SeatSelector {
-  // width: 600px;
   display: grid;
   grid-gap: 1rem;
   grid-template-columns: repeat(5, 60px);

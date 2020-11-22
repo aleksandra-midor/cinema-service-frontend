@@ -25,12 +25,23 @@ function AllMovies() {
 
   return (
     <main className="AllMovies">
-      <h1>{t("allMovies:allMovies")}</h1>
-      <label>
-        <span>Find a movie</span>
-        <input value={search} onInput={handleSearch} />
-      </label>
-      <Button onClick={() => setSearch("")}>Clear</Button>
+      <header className="AllMovies_Header">
+        <h1>{t("allMovies:allMovies")}</h1>
+
+        <div className="AllMovies_Search">
+          <label className="Search_Label">
+            <span>Find a movie</span>
+            <input
+              className="Search_Input"
+              value={search}
+              onInput={handleSearch}
+            />
+          </label>
+          <Button className="Search_Clear" onClick={() => setSearch("")}>
+            Clear
+          </Button>
+        </div>
+      </header>
       {filteredMovies.length > 0 ? (
         <ul className="AllMovies_List">
           {filteredMovies.map((el) => {
