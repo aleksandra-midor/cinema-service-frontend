@@ -1,17 +1,32 @@
-// @import './styles/variables.scss';
+@import "../../styles/variables.scss";
 
 .MovieSlider {
-  display: flex; 
+  display: flex;
 
   &.MovieSlider-large {
     height: 60vh;
     overflow: hidden;
+
+    .MovieSlider_Image {
+      flex: 1;
+    }
   }
 
-  .MovieSlider_Image {
-    flex: 1
+  &.MovieSlider-medium {
+    // height: 20vh;
+    overflow: hidden;
+    max-width: $content-width-max * 1.5;
+    margin: auto;
+
+    .MovieSlider_Image {
+      // flex: 1
+      margin: 1rem;
+
+      // .Image {
+      //   img {
+      //     object-fit: contain;
+      //   }
+      // }
+    }
   }
 }
-
-
-

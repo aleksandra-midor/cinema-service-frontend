@@ -4,7 +4,7 @@ import Image from "../Image/Image";
 
 function MovieImage(props) {
   return (
-    <div className="MovieImage">
+    <div className={`MovieImage MovieImage-${props.size}`}>
       <Image width={450} imageName={props.src} title={props.title} />
       <p className="MovieImage_Title">{props.title}</p>
     </div>
