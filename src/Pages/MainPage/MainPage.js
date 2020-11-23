@@ -8,17 +8,31 @@ function MainPage() {
   const { state } = useContext(AppContext);
 
   const handleSortByRating = () => {
-    const sortedMovies = state.movies.sort((a, b) => {
-      return a.imdbRating - b.imdbRating;
-    });
-    return sortedMovies.reverse();
+    const sortedMovies = [...state.selectedMovies];
+    return sortedMovies
+      .sort((a, b) => {
+        return a.imdbRating - b.imdbRating;
+      })
+      .reverse();
   };
   return (
     <main className="MainPage">
       <header className="MainPage_Header" />
-      <MovieSlider size="large" count={3} movies={state.selectedMovies} />
-      <MovieSlider size="medium" count={5} movies={handleSortByRating()} />
-      {/* <h1>Premieres</h1> */}
+      <MovieSlider size="large" count={5} movies={state.selectedMovies} />
+      {/* <h1>Our films</h1> */}
+      {/* <h3>Top rated</h3> */}
+      <MovieSlider
+        sliderTitle="Top rated"
+        size="medium"
+        count={5}
+        movies={handleSortByRating()}
+      />
+      <MovieSlider
+        sliderTitle="Top rated"
+        size="medium"
+        count={5}
+        movies={handleSortByRating()}
+      />
     </main>
   );
 }

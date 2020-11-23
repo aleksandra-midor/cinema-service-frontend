@@ -31,12 +31,12 @@
       );
     }
     .MovieImage_Title {
+      width: calc(100% - 2rem);
       font-size: 1.5rem;
     }
   }
 
   &.MovieImage-medium {
-    
     .MovieImage_Title {
       font-size: 0.8rem;
       font-size: 0.8rem;

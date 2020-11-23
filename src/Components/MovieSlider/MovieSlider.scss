@@ -1,11 +1,22 @@
 @import "../../styles/variables.scss";
 
 .MovieSlider {
-  display: flex;
+  margin-top: $padding-default * 2;
 
+  .MovieSlider_Title {
+    margin-left: 1rem;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 0;
+  }
+
+  .MovieSlider_List {
+    display: flex;
+    height: 100%;
+  }
   &.MovieSlider-large {
+    margin-top: 0;
     height: 60vh;
-    overflow: hidden;
 
     .MovieSlider_Image {
       flex: 1;
@@ -13,14 +24,15 @@
   }
 
   &.MovieSlider-medium {
-    // height: 20vh;
     overflow: hidden;
     max-width: $content-width-max * 1.5;
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
 
     .MovieSlider_Image {
       // flex: 1
       margin: 1rem;
+      margin-bottom: 1.5rem;
 
       // .Image {
       //   img {
