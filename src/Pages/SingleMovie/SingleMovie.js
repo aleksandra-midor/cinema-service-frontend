@@ -121,18 +121,30 @@ function SingleMovie(props) {
 
   if (movieData) {
     return (
-      <main className="SingleMovie">
-        <Image
-          imageName={movieData.posterImage}
-          title={movieData.title[language]}
-          width={1200}
-        />
-        <section className="SingleMovie_Info">
-          <h1>{movieData.title[language]}</h1>
-          <p>{movieData.storyline[language]}</p>
-          {repertoireRender()}
-        </section>
-      </main>
+      <>
+        <main className="SingleMovie">
+          <Image
+            imageName={movieData.posterImage}
+            title={movieData.title[language]}
+            width={1200}
+          />
+          <section className="SingleMovie_Info">
+            <h1>{movieData.title[language]}</h1>
+            <p>{movieData.storyline[language]}</p>
+            {repertoireRender()}
+          </section>
+        </main>
+        <div className="SingleMovie_VideoContainer">
+          <iframe
+            title={movieData.title[language]}
+            className="SingleMovie_Iframe"
+            modestbranding="1"
+            src={`https://www.youtube.com/embed/${movieData.trailer}?modestbranding=1&amp;rel=0&vq=hd720p60`}
+            frameBorder="0"
+            allowFullScreen
+          />
+        </div>
+      </>
     );
   }
 
