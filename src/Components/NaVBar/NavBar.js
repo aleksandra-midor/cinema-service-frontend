@@ -15,7 +15,7 @@ function NavBar() {
     dispatch({ type: "setSelectedCinema", data: null });
   };
 
-  console.log(i18n.language);
+  console.log("navbar language", i18n.language);
 
   return (
     <header className="NavBar">
@@ -32,8 +32,12 @@ function NavBar() {
               i18n.changeLanguage(e.target.value);
             }}
           >
-            <option value="sv">SV</option>
-            <option value="pl">PL</option>
+            <option selected={i18n.language === "pl"} value="pl">
+              PL
+            </option>
+            <option selected={i18n.language === "sv"} value="sv">
+              SV
+            </option>
           </select>
         </li>
         <li>
