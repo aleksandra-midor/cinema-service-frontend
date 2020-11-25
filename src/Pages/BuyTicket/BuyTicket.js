@@ -24,9 +24,16 @@ const BuyTicket = () => {
     if (!state.ticket.movieId) {
       navigate("/");
     } else if (step === 0) {
-      navigate(`/movie/${state.ticket.movieId}`);
+      const foundMovie = state.selectedMovies.find(
+        (el) => el._id === state.ticket.movieId
+      );
+      if (foundMovie) {
+        navigate(`/movie/${foundMovie.movieId}`);
+      } else {
+        navigate(`/`);
+      }
     }
-  }, [state.ticket, step]);
+  }, [state.selectedMovies, state.ticket, step]);
 
   if (state.ticket.movieId && state.selectedCinema) {
     return (
