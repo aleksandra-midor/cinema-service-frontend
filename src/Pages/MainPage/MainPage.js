@@ -17,11 +17,9 @@ function MainPage() {
       .reverse();
   };
   return (
-    <main className="MainPage">
+    <main className="MainPage" data-testid="MainPage">
       <header className="MainPage_Header" />
       <MovieSlider size="large" count={5} movies={state.selectedMovies} />
-      {/* <h1>Our films</h1> */}
-      {/* <h3>Top rated</h3> */}
       <MovieSlider
         sliderTitle={t("mainPage:topRated")}
         size="medium"
