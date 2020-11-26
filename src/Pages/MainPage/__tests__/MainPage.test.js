@@ -1,6 +1,6 @@
 import React from "react";
-import { render, act, waitFor, fireEvent } from "@testing-library/react";
-import { getTestStore, WithProvider } from "../../../mockTestData/WithProvider";
+import { render, act, waitFor, getByTestId } from "@testing-library/react";
+import { WithProvider } from "../../../mockTestData/WithProvider";
 import MainPage from "../MainPage";
 
 async function renderWrapper() {
@@ -9,7 +9,7 @@ async function renderWrapper() {
   act(() => {
     component = render(
       <WithProvider>
-        <MainPage path="/" />
+        <MainPage />
       </WithProvider>
     );
   });

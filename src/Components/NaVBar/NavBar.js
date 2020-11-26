@@ -18,11 +18,11 @@ function NavBar() {
   console.log("navbar language", i18n.language);
 
   return (
-    <header className="NavBar">
-      <Link to="/" className="NavBar_Logo">
+    <header className="NavBar" data-testid="NavBar">
+      {/* <Link to="/" className="NavBar_Logo">
         <img src="/assets/icons/logo.svg" alt="cinema paradiso logo" />
         Cinema Paradiso
-      </Link>
+      </Link> */}
       <ul className="NavBar_List">
         <li>
           <select
@@ -41,9 +41,9 @@ function NavBar() {
           </select>
         </li>
         <li>
-          <Link className="NavBar_Link" to="/movies">
+          {/* <Link className="NavBar_Link" to="/movies">
             movies
-          </Link>
+          </Link> */}
         </li>
         <li>
           <button

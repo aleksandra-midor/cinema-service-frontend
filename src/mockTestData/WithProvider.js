@@ -1,5 +1,4 @@
 import React from "react";
-import { Router } from "@reach/router";
 import AppContext from "../store/context";
 import movies from "./movies.json";
 import cinemas from "./cinema.json";
@@ -75,7 +74,7 @@ export const WithProvider = (props) => {
   const { state, dispatch } = getTestStore();
   return (
     <AppContext.Provider value={{ state, dispatch }}>
-      <Router>{props.children}</Router>
+      {props.children}
     </AppContext.Provider>
   );
 };
