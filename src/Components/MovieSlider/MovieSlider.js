@@ -13,7 +13,7 @@ function MovieSlider(props) {
         <p className="MovieSlider_Title">{props.sliderTitle}</p>
       ) : null}
       <ul data-testid="MovieSlider" className="MovieSlider_List">
-        {props.movies.slice(0, props.count).map((el, i) => {
+        {props.movies.slice(0, props.count).map((el) => {
           return (
             <li
               data-testid="MovieSlider_Image"

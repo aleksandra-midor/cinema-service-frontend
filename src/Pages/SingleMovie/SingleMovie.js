@@ -125,13 +125,24 @@ function SingleMovie(props) {
     return (
       <>
         <main className="SingleMovie">
-          <Image
-            imageName={movieData.posterImage}
-            title={movieData.title[language]}
-            width={1200}
-          />
+          <section className="SingleMovie_Introduction">
+            <Image
+              imageName={movieData.posterImage}
+              title={movieData.title[language]}
+              width={1200}
+            />
+            <div className="Introduction_Poster">
+              <Image
+                imageName={movieData.posterImage}
+                title={movieData.title[language]}
+                width={300}
+              />
+            </div>
+            <div className="Introduction_Title">
+              <h1>{movieData.title[language]}</h1>
+            </div>
+          </section>
           <section className="SingleMovie_Info">
-            <h1>{movieData.title[language]}</h1>
             <p>{movieData.storyline[language]}</p>
 
             <h2>{t("singleMovie:duration")}</h2>

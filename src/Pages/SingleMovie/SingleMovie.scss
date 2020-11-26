@@ -1,16 +1,68 @@
 @import "../../styles/variables.scss";
 
 .SingleMovie {
-  display: flex;
+  .SingleMovie_Introduction {
+    display: flex;
+    position: relative;
+    height: calc(100vh - #{$size-navBar-height} - 8rem);
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: 0;
+      height: 30%;
+      width: 100%;
+      background: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.9136029411764706) 0%,
+        rgba(0, 0, 0, 0.8435749299719888) 31%,
+        rgba(0, 0, 0, 0.41780462184873945) 67%,
+        rgba(0, 0, 0, 0) 100%
+      );
+    }
+    & > .Image {
+      position: absolute;
+    }
+
+    .Introduction_Poster {
+      z-index: 10;
+      width: 33%;
+      position: relative;
+
+      .Image {
+        height: unset;
+        position: absolute;
+        bottom: $padding-default * 2;
+        width: 100%;
+
+        img {
+          object-fit: contain;
+          width: 60%;
+          margin: auto;
+          box-shadow: 4px 9px 40px #000000a8;
+        }
+      }
+    }
+
+    .Introduction_Title {
+      width: 66%;
+      position: relative;
+      z-index: 10;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-end;
+
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: $padding-default * 2;
+      }
+    }
+  }
 
   .SingleMovie_Info {
     width: 50vw;
     text-align: left;
     padding: $padding-default;
-  }
-
-  .Image {
-    width: 50vw;
   }
 }
 

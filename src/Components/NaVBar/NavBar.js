@@ -15,35 +15,30 @@ function NavBar() {
     dispatch({ type: "setSelectedCinema", data: null });
   };
 
-  console.log("navbar language", i18n.language);
-
   return (
     <header className="NavBar" data-testid="NavBar">
-      {/* <Link to="/" className="NavBar_Logo">
+      <Link to="/" className="NavBar_Logo">
         <img src="/assets/icons/logo.svg" alt="cinema paradiso logo" />
         Cinema Paradiso
-      </Link> */}
+      </Link>
       <ul className="NavBar_List">
         <li>
           <select
             className="NavBar_Link"
             select={i18n.language}
+            defaultValue={i18n.language}
             onChange={(e) => {
               i18n.changeLanguage(e.target.value);
             }}
           >
-            <option selected={i18n.language === "pl"} value="pl">
-              PL
-            </option>
-            <option selected={i18n.language === "sv"} value="sv">
-              SV
-            </option>
+            <option value="pl">PL</option>
+            <option value="sv">SV</option>
           </select>
         </li>
         <li>
-          {/* <Link className="NavBar_Link" to="/movies">
+          <Link className="NavBar_Link" to="/movies">
             movies
-          </Link> */}
+          </Link>
         </li>
         <li>
           <button
