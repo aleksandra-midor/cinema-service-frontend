@@ -1,11 +1,12 @@
 import React, { useContext } from "react";
+import { useTranslation } from "react-i18next";
 import MovieSlider from "../../Components/MovieSlider/MovieSlider";
 import AppContext from "../../store/context";
-
 import "./MainPage.scss";
 
 function MainPage() {
   const { state } = useContext(AppContext);
+  const { t } = useTranslation();
 
   const handleSortByRating = () => {
     const sortedMovies = [...state.selectedMovies];
@@ -22,7 +23,7 @@ function MainPage() {
       {/* <h1>Our films</h1> */}
       {/* <h3>Top rated</h3> */}
       <MovieSlider
-        sliderTitle="Top rated"
+        sliderTitle={t("mainPage:topRated")}
         size="medium"
         count={5}
         movies={handleSortByRating()}

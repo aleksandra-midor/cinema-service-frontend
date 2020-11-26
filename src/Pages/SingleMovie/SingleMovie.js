@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useContext, useCallback } from "react";
 import { navigate } from "@reach/router";
+import { useTranslation } from "react-i18next";
 import Image from "../../Components/Image/Image";
 import "./SingleMovie.scss";
 import AppContext from "../../store/context";
@@ -10,6 +11,7 @@ function SingleMovie(props) {
   const { movieId } = props;
   const { state, dispatch } = useContext(AppContext);
   const { language } = i18n;
+  const { t } = useTranslation();
   // const { ticket } = state;
 
   const [movieData, setMovieData] = useState();
@@ -50,7 +52,7 @@ function SingleMovie(props) {
                     navigate("/ticket");
                   }}
                 >
-                  Buy a ticket
+                  {t("singleMovie:buyTicket")}
                 </Button>
                 {/* // <Button key={item}>{item}</Button> */}
               </li>
@@ -99,7 +101,7 @@ function SingleMovie(props) {
     if (repertoireData.length > 0) {
       return (
         <section className="Seances">
-          <h2>Nearest seances</h2>
+          <h2>{t("singleMovie:nextSeances")}</h2>
           <ul>
             {dateSorter(repertoireData).map((el, i) => {
               return (
@@ -116,7 +118,7 @@ function SingleMovie(props) {
         </section>
       );
     }
-    return <div> ------------------ currently not in this cinema</div>;
+    return <div>{t("singleMovie:notInThisCinema")}</div>;
   }
 
   if (movieData) {
@@ -131,6 +133,18 @@ function SingleMovie(props) {
           <section className="SingleMovie_Info">
             <h1>{movieData.title[language]}</h1>
             <p>{movieData.storyline[language]}</p>
+
+            <h2>{t("singleMovie:duration")}</h2>
+            <p>{movieData.duration.replace("PT", "").replace("M", " min")}</p>
+            <h2>{t("singleMovie:originalTitle")}</h2>
+            <p>{movieData.originalTitle}</p>
+            <h2>{t("singleMovie:releseDate")}</h2>
+            <p>{movieData.releaseDate}</p>
+            <h2>{t("singleMovie:actors")}</h2>
+            <p>{movieData.actors.join(", ")}</p>
+            <h2>{t("singleMovie:imdbRating")}</h2>
+            <p>{movieData.imdbRating}</p>
+
             {repertoireRender()}
           </section>
         </main>

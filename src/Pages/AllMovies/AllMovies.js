@@ -30,7 +30,7 @@ function AllMovies() {
 
         <div className="AllMovies_Search">
           <label className="Search_Label">
-            <span>Find a movie</span>
+            <span>{t("allMovies:findMovie")}</span>
             <input
               className="Search_Input"
               value={search}
@@ -68,7 +68,7 @@ function AllMovies() {
           })}
         </ul>
       ) : (
-        <p>Nothing found</p>
+        <p>{t("allMovies:nothingFound")}</p>
       )}
     </main>
   );

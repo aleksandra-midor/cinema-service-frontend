@@ -1,3 +1,5 @@
 {
-  "allMovies": "Alla Filmer"
+  "allMovies": "Alla Filmer",
+  "findMovie": "Hitta en film",
+  "nothingFound": "Inget hittat"
 }
