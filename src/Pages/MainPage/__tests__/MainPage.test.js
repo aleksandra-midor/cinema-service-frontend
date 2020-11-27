@@ -17,7 +17,7 @@ async function renderWrapper() {
   return component;
 }
 
-describe.only("MainPage testing", () => {
+describe("MainPage testing", () => {
   beforeEach(() => {
     // axiosMock.get.mockResolvedValueOnce({
     //   data: {
@@ -35,5 +35,5 @@ describe.only("MainPage testing", () => {
     // const { state } = getTestStore();
     const element = await waitFor(() => getByTestId("MainPage"));
     expect(element).toBeInTheDocument();
-  })
+  });
 });

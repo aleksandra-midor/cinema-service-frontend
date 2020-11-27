@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect, useCallback } from "react";
 import axios from "axios";
+import { useTranslation } from "react-i18next";
 import AppContext from "../../store/context";
 import Modal from "../Modal/Modal";
 
@@ -16,8 +17,7 @@ function CinemaSelection() {
   const [cinemaLocalStorage, setCinemaLocalStorage] = useState(
     localStorage.getItem("selectedCinemaId")
   );
-
-  console.log("cinemaLocalStorage", cinemaLocalStorage);
+  const { t } = useTranslation();
 
   const setSelectedCinema = (data) =>
     dispatch({ type: "setSelectedCinema", data });
@@ -111,7 +111,7 @@ function CinemaSelection() {
       <Modal
         visible={modalVisible}
         onClickOk={handleCinemaSelection}
-        title="Select the location of your cinema"
+        title={t("cinemaSelection:cinemaSelection")}
       >
         {displayCinemas}
       </Modal>

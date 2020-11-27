@@ -24,4 +24,16 @@ describe("NavBar testing", () => {
     const element = await waitFor(() => getByTestId("NavBar"));
     expect(element).toBeInTheDocument();
   });
+
+  test("Language selection renders", async () => {
+    const { getByTestId } = await renderWrapper();
+    const list = await waitFor(() => getByTestId("NavBar_List"));
+    expect(list).toBeInTheDocument();
+  });
+
+  test("Link to AllMovies renders", async () => {
+    const { getByTestId } = await renderWrapper();
+    const link = await waitFor(() => getByTestId("NavBar_Link"));
+    expect(link).toBeInTheDocument();
+  });
 });

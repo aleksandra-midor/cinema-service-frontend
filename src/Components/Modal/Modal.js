@@ -1,8 +1,10 @@
 import React from "react";
 import "./Modal.scss";
+import { useTranslation } from "react-i18next";
 import Button from "../Button/Button";
 
 const Modal = ({ children, visible, onClickOk, title }) => {
+  const { t } = useTranslation();
   if (visible) {
     return (
       <div className="Modal">
@@ -11,7 +13,7 @@ const Modal = ({ children, visible, onClickOk, title }) => {
           <div className="Modal_Content">{children}</div>
           <footer className="Modal_Footer">
             <Button onClick={onClickOk} color="primary">
-              Confirm
+              {t("modal:confirm")}
             </Button>
           </footer>
         </section>
