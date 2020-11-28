@@ -6,7 +6,7 @@ import axios from "axios";
 import AppContext from "./store/context";
 import store from "./store";
 import MainPage from "./Pages/MainPage/MainPage";
-import NavBar from "./Components/temp/NavBar";
+import NavBar from "./Components/NavBar/NavBar";
 import SingleMovie from "./Pages/SingleMovie/SingleMovie";
 import AllMovies from "./Pages/AllMovies/AllMovies";
 import CinemaSelection from "./Components/CinemaSelection/CinemaSelection";
