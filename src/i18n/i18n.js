@@ -33,18 +33,20 @@ const resources = {
   },
 };
 
-const preload = Object.keys(resources);
+const languages = Object.keys(resources);
+const fallbackLng = "sv";
 
 i18n
   .use(initReactI18next)
   .use(languageDetector)
   .init({
     resources,
-    fallbackLng: "sv",
-    preload,
+    fallbackLng,
+    preload: languages,
     interpolation: {
       escapeValue: false,
     },
   });
 
 export default i18n;
+export { languages, fallbackLng };

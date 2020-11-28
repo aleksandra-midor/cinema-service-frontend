@@ -1,13 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link } from "@reach/router";
-import { useTranslation } from "react-i18next";
-import i18n from "../../i18n/i18n";
+import { useTranslation, getI18n } from "react-i18next";
+import i18n, { languages, fallbackLng } from "../../i18n/i18n";
 import AppContext from "../../store/context";
-// eslint-disable-next-line import/no-unresolved
 import "./NavBar.scss";
 
 function NavBar() {
-  // const { i18 } = useTranslation();
   const { state, dispatch } = useContext(AppContext);
   const { selectedCinema } = state;
   const { t } = useTranslation();
@@ -15,6 +13,14 @@ function NavBar() {
   const handleSelectCinema = () => {
     dispatch({ type: "setSelectedCinema", data: null });
   };
+
+  // changes selected language to a fallbackLng if not foound
+  const currentLanguage = getI18n().language;
+  useEffect(() => {
+    if (languages.indexOf(currentLanguage) === -1) {
+      i18n.changeLanguage(fallbackLng);
+    }
+  }, [currentLanguage]);
 
   return (
     <header className="NavBar" data-testid="NavBar">
@@ -26,14 +32,14 @@ function NavBar() {
         <li>
           <select
             className="NavBar_Link"
-            select={i18n.language}
-            defaultValue={i18n.language}
+            select={currentLanguage}
+            defaultValue={currentLanguage}
             onChange={(e) => {
               i18n.changeLanguage(e.target.value);
             }}
           >
-            <option value="pl">PL</option>
             <option value="sv">SV</option>
+            <option value="pl">PL</option>
           </select>
         </li>
         <li>
