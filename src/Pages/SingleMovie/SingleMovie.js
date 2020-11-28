@@ -48,6 +48,7 @@ function SingleMovie(props) {
                       cinemaId: state.selectedCinema._id,
                       cinemaName: state.selectedCinema.name,
                       seats: [],
+                      language: i18n.language,
                     });
                     navigate("/ticket");
                   }}
