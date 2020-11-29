@@ -113,6 +113,17 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
+## Booking tickets and payment
+You can ubook any tickets you want and pay by a mockup card without any worries. This is just an exercise so either cinema nor payment are real.
+
+### mockup card details:
+- card number: 4242 4242 4242 4242
+- card valid till: any date in the futrue
+
+### email
+Feel free to enter your email if you want to check email functionality.
+
+
 ## About author:
 
 Aleksandra Midor
