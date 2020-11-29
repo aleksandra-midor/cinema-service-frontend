@@ -11,6 +11,8 @@ import navBarSv from "../Components/NavBar/i18n/sv.json";
 import navBarPl from "../Components/NavBar/i18n/pl.json";
 import modalSv from "../Components/Modal/i18n/sv.json";
 import modalPl from "../Components/Modal/i18n/pl.json";
+import thankYouPl from "../Pages/BuyTicket/Steps/ThankYou/i18n/Pl.json";
+import thankYouSv from "../Pages/BuyTicket/Steps/ThankYou/i18n/Sv.json";
 import cinemaSelectionSv from "../Components/CinemaSelection/i18n/sv.json";
 import cinemaSelectionPl from "../Components/CinemaSelection/i18n/pl.json";
 
@@ -22,6 +24,7 @@ const resources = {
     navBar: navBarSv,
     modal: modalSv,
     cinemaSelection: cinemaSelectionSv,
+    thankYou: thankYouSv,
   },
   pl: {
     allMovies: allMoviesPl,
@@ -30,6 +33,7 @@ const resources = {
     navBar: navBarPl,
     modal: modalPl,
     cinemaSelection: cinemaSelectionPl,
+    thankYou: thankYouPl,
   },
 };
 
