@@ -1,4 +1,8 @@
 # Cinema Service FRONTEND
+![Lint](https://github.com/aleksandra-midor/cinema-service-frontend/workflows/Lint/badge.svg)
+![Test](https://github.com/aleksandra-midor/cinema-service-frontend/workflows/Test/badge.svg)
+![Build](https://github.com/aleksandra-midor/cinema-service-frontend/workflows/Build/badge.svg)
+
 [![Netlify Status](https://api.netlify.com/api/v1/badges/050bbac1-5259-40d3-8d18-42b1f58fbc84/deploy-status)](https://app.netlify.com/sites/cinema-paradiso/deploys)
 
 [Smart Coding](http://www.smartcoding.se/) course exam project for a cinema service.
