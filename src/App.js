@@ -11,6 +11,7 @@ import SingleMovie from "./Pages/SingleMovie/SingleMovie";
 import AllMovies from "./Pages/AllMovies/AllMovies";
 import CinemaSelection from "./Components/CinemaSelection/CinemaSelection";
 import BuyTicket from "./Pages/BuyTicket/BuyTicket";
+import Footer from "./Components/Footer/Footer";
 
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
@@ -41,6 +42,7 @@ function App() {
             <AllMovies path="movies" />
             <BuyTicket path="ticket" />
           </Router>
+          <Footer />
         </div>
         <CinemaSelection />
       </div>

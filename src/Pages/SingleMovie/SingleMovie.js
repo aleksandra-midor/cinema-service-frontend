@@ -159,17 +159,17 @@ function SingleMovie(props) {
 
             {repertoireRender()}
           </section>
+          <section className="SingleMovie_VideoContainer">
+            <iframe
+              title={movieData.title[language]}
+              className="SingleMovie_Iframe"
+              modestbranding="1"
+              src={`https://www.youtube.com/embed/${movieData.trailer}?modestbranding=1&amp;rel=0&vq=hd720p60`}
+              frameBorder="0"
+              allowFullScreen
+            />
+          </section>
         </main>
-        <div className="SingleMovie_VideoContainer">
-          <iframe
-            title={movieData.title[language]}
-            className="SingleMovie_Iframe"
-            modestbranding="1"
-            src={`https://www.youtube.com/embed/${movieData.trailer}?modestbranding=1&amp;rel=0&vq=hd720p60`}
-            frameBorder="0"
-            allowFullScreen
-          />
-        </div>
       </>
     );
   }

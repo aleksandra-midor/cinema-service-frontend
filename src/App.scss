@@ -11,8 +11,8 @@
     height: calc(100vh - #{$size-navBar-height});
     overflow-y: auto;
 
-    &>div {
-      height: 100%;
-    }
+    // &>div {
+    //   height: 100%;
+    // }
   }
 }

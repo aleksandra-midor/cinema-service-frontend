@@ -1,0 +1,31 @@
+@import "../../styles/variables.scss";
+
+.Footer {
+  // background: $color-gray;
+  padding: $padding-default;
+  padding-bottom: 0.5 * $padding-default;
+  box-shadow: 0 -26px 72px #0a0a0a;
+  margin-top: 2 * $padding-default;
+  font-size: 75%;
+  border-bottom: 4px solid $color-primary;
+
+  .Footer_Container {
+    max-width: $content-width-max;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    // flex: 1;
+    // max-width: 300px;
+  }
+
+  .Footer_CinemaName {
+    font-size: 125%;
+    font-weight: bold;
+    color: $color-primary;
+    margin-bottom: 0.5rem;
+  }
+  .Footer_Column {
+  }
+}
