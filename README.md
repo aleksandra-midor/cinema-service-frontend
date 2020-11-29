@@ -1,4 +1,5 @@
 # Cinema Service FRONTEND
+
 ![Lint](https://github.com/aleksandra-midor/cinema-service-frontend/workflows/Lint/badge.svg)
 ![Test](https://github.com/aleksandra-midor/cinema-service-frontend/workflows/Test/badge.svg)
 ![Build](https://github.com/aleksandra-midor/cinema-service-frontend/workflows/Build/badge.svg)
@@ -25,21 +26,27 @@
 
 ### Frontend
 
-- react with hooks
+- react with hooks based on CRA template
 - sass
 - i18n
 - eslint
 - stripe (payment)
 - cloudinary (images hosting)
+- jest, testing-library
 
 ### Backend
 
 - node JS
-- mongo
+- express
+- mongo DB
+- stripe (payment)
 - mailJet
+- eslint
+- mocha, chai, supertest
 
-### Deployment
+### CI and Deployment
 
+- Github actions
 - netlify (frontend)
 - heroku (backend)
 
@@ -47,24 +54,30 @@
 
 ### Requirements
 
-- mongo database
-- [stripe.com](https://stripe.com/en-se) dev account and its secret api key 
-- [backend repository](https://github.com/aleksandra-midor/cinema-service-backend) downloaded, installed, and running
+- cinema service [backend repository](https://github.com/aleksandra-midor/cinema-service-backend) downloaded, installed, and running
+- mongo database (in backend)
+- [mailjet](https://mailjet.com) (for backend)
+- [stripe.com](https://stripe.com/en-se) dev account and its secret api key
 
 ### Setup
 
-1. clone repository
-2. install dependencies ```npm install```
-3. create `.env.local` file in root directory 
-    ```
-    REACT_APP_BASE_URL="<backend url>"
-    REACT_APP_STRIPE_KEY="<stripe key>"
-    ```
-    and replace 
+1. clone the repository
+2. install dependencies
+   ```
+   npm install
+   ```
+3. create `.env.local` file in root directory
 
-    - \<backend url> with url to your cinema serive backend, for example 'http://localhost:5001'
+   ```
+   REACT_APP_BASE_URL=<backend url>
+   REACT_APP_STRIPE_KEY=<stripe key>
+   ```
 
-    - \<stripe key> with a secret key from stripe
+   and replace
+
+   - `<backend-url>` with url to your cinema serive backend, for example 'http://localhost:5001'
+
+   - `<stripe-key>` with a secret key from stripe
 
 4. run `npm start` to start developing
 
@@ -79,12 +92,10 @@ The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
 ### `npm test`
-
 Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
 
 ### `npm run build`
-
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
@@ -94,7 +105,6 @@ Your app is ready to be deployed!
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
 ### `npm run eject`
-
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
 If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
@@ -102,7 +112,6 @@ If you aren’t satisfied with the build tool and configuration choices, you can
 Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
 
 ## About author:
 
@@ -112,12 +121,8 @@ website: [aleksandramidor.com](http://aleksandramidor.com/)
 
 mail: [ola_midor@outlook.com](mailto:ola_midor@outlook.com)
 
-
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-
 
 ## Icons attributes
 
 Icons made by <a href="https://www.flaticon.com/authors/fjstudio" title="fjstudio">fjstudio</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
-
