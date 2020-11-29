@@ -20,7 +20,7 @@
   grid-gap: 1rem;
   grid-template-columns: repeat(5, 60px);
   grid-template-rows: repeat(5, 60px);
-  grid-auto-flow: column;
+  grid-auto-flow: row;
 
   label.SeatSelector_Seat {
     width: 100%;
