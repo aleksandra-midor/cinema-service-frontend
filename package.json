@@ -19,7 +19,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --coverage --watchAll=false",
     "lint": "eslint src/**/*.js --ext .js",
     "eject": "react-scripts eject"
   },
@@ -54,5 +54,20 @@
     "eslint-plugin-react-hooks": "4.1.2",
     "jest-environment-jsdom-sixteen": "^1.0.3",
     "prettier": "^2.1.2"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!<rootDir>/node_modules/",
+      "!<rootDir>/path/to/dir/"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 10,
+        "functions": 10,
+        "lines": 10,
+        "statements": 10
+      }
+    }
   }
 }
