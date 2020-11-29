@@ -28,7 +28,12 @@ const SelectSeats = (props) => {
       setUnavailableSeats(result.data);
     };
     fetchUnavailableSeats();
-  }, []);
+  }, [
+    state.selectedCinema._id,
+    state.ticket.movieId,
+    state.ticket.date,
+    state.ticket.hour,
+  ]);
 
   const handleSelectedSeats = (el) => {
     let newState = [];
