@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import axios from "axios";
+import { useTranslation } from "react-i18next";
 import AppContext from "../../../../store/context";
 import Button from "../../../../Components/Button/Button";
 
@@ -11,6 +12,7 @@ const SelectSeats = (props) => {
   const { state, dispatch } = useContext(AppContext);
   // const [selectedSeats, setSelectedSeats] = useState([]);
   const [unavailableSeats, setUnavailableSeats] = useState([]);
+  const { t } = useTranslation();
 
   const setTicket = (data) => {
     dispatch({ type: "setTicket", data });
@@ -62,7 +64,7 @@ const SelectSeats = (props) => {
   return (
     <section className="SelectSeatsStep">
       <div className="SelectSeatsStep_Container">
-        <h2>Select your seats</h2>
+        <h2>{t("selectSeats:selectSeats")}</h2>
 
         <div className="SelectSeatsStep_Screen">Screen</div>
         <ul className="SeatSelector">
@@ -87,14 +89,16 @@ const SelectSeats = (props) => {
             );
           })}
         </ul>
-        <Button onClick={() => props.handlePreviousStep()}>Back</Button>
+        <Button onClick={() => props.handlePreviousStep()}>
+          {t("selectSeats:back")}
+        </Button>
         <Button
           disabled={state.ticket.seats.length === 0}
           onClick={() => {
             props.handleNextStep();
           }}
         >
-          Continue
+          {t("selectSeats:continue")}
         </Button>
       </div>
     </section>

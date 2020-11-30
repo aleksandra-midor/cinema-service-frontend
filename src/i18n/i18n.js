@@ -17,6 +17,8 @@ import cinemaSelectionSv from "../Components/CinemaSelection/i18n/sv.json";
 import cinemaSelectionPl from "../Components/CinemaSelection/i18n/pl.json";
 import ticketSv from "../Pages/BuyTicket/Steps/Ticket/i18n/Sv.json";
 import ticketPl from "../Pages/BuyTicket/Steps/Ticket/i18n/Pl.json";
+import selectSeatsSv from "../Pages/BuyTicket/Steps/SelectSeats/i18n/Sv.json";
+import selectSeatsPl from "../Pages/BuyTicket/Steps/SelectSeats/i18n/Pl.json";
 
 const resources = {
   sv: {
@@ -28,6 +30,7 @@ const resources = {
     cinemaSelection: cinemaSelectionSv,
     thankYou: thankYouSv,
     ticket: ticketSv,
+    selectSeats: selectSeatsSv,
   },
   pl: {
     allMovies: allMoviesPl,
@@ -38,6 +41,7 @@ const resources = {
     cinemaSelection: cinemaSelectionPl,
     thankYou: thankYouPl,
     ticket: ticketPl,
+    selectSeats: selectSeatsPl,
   },
 };
 
