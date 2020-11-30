@@ -112,12 +112,24 @@ const CheckoutForm = (props) => {
     hidePostalCode: true,
   };
 
+  function validateEmail() {
+    // from https://www.w3resource.com/javascript/form/email-validation.php
+    if (
+      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(
+        email
+      )
+    ) {
+      return true;
+    }
+    return false;
+  }
+
   return (
     <>
       <div className="CheckoutForm">
         {/* <p>Amount: ${selectedProduct.price}</p> */}
         <form onSubmit={handleSubmit}>
-          <h1>Payment</h1>
+          <h2>Payment</h2>
           <span>Your card details</span>
           <CardElement
             options={cardElementOpts}
@@ -135,7 +147,7 @@ const CheckoutForm = (props) => {
           <button
             type="submit"
             className="order-button"
-            disabled={isProcessing || !stripe}
+            disabled={isProcessing || !stripe || !validateEmail()}
           >
             {isProcessing
               ? "Processing..."
