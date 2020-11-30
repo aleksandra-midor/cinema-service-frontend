@@ -73,3 +73,15 @@
     }
   }
 }
+
+@media only screen and (max-width: $media-width-mobile-max) {
+  .AllMovies {
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    .Search_Input {
+      width: calc(100% - 4rem) !important;
+      margin-top: 1rem;
+    }
+  }
+}

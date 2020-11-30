@@ -16,8 +16,8 @@ function MovieSlider(props) {
         {props.movies.slice(0, props.count).map((el) => {
           return (
             <li
-              data-testid="MovieSlider_Image"
               className="MovieSlider_Image"
+              data-testid="MovieSlider_Image"
               key={`${el.movieId}_${props.sliderTitle}`}
             >
               <Link to={`/movie/${el.movieId}`}>
