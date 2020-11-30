@@ -18,16 +18,17 @@ function MainPage() {
   };
   return (
     <main className="MainPage" data-testid="MainPage">
-      <header className="MainPage_Header" />
       <MovieSlider size="large" count={5} movies={state.selectedMovies} />
+      <p>{t("mainPage:news")}</p>
       <MovieSlider
         sliderTitle={t("mainPage:topRated")}
         size="medium"
         count={5}
         movies={handleSortByRating()}
       />
+      <header className="MainPage_Header" />
       <MovieSlider
-        sliderTitle="Top rated"
+        sliderTitle={t("mainPage:nearFuture")}
         size="medium"
         count={5}
         movies={handleSortByRating()}

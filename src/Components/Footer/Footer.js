@@ -8,7 +8,7 @@ const Footer = () => {
   const cinema = state.selectedCinema;
 
   return (
-    <footer className="Footer">
+    <footer className="Footer" data-testid="Footer">
       {cinema ? (
         <div className="Footer_Container">
           <div className="Footer_Column">

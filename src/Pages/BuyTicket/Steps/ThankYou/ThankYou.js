@@ -8,7 +8,7 @@ const ThankYou = () => {
   const { ticket } = state;
 
   return (
-    <section className="ThankYouStep">
+    <section className="ThankYouStep" data-testid="ThankYouStep">
       <h1>
         {t("thankYou:ticketFor")}
         &nbsp;

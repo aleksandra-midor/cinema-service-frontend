@@ -28,10 +28,6 @@ const CheckoutForm = (props) => {
   const stripe = useStripe();
   const elements = useElements();
 
-  // console.log(state.ticket);
-
-  // const [email, setEmail] = useState("m.przybylowski@outlook.com");
-
   const setTicket = (data) => {
     dispatch({ type: "setTicket", data });
   };

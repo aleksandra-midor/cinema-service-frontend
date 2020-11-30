@@ -1,0 +1,11 @@
+{
+  "yourTicket": "Twój bilet:",
+  "movie": "Film:",
+  "date": "Data seansu:",
+  "time": "Godzina:",
+  "seats": "Zarezerwowane miejsca:",
+  "cinema": "Kino:",
+  "singlePrice": "Cena pojedynczego biletu:",
+  "totalPrice": "Łączna cena za",
+  "tickets": "biletów:"
+}
