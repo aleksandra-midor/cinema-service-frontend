@@ -114,14 +114,17 @@ const CheckoutForm = (props) => {
 
   return (
     <>
-      <div className="checkout-form">
+      <div className="CheckoutForm">
         {/* <p>Amount: ${selectedProduct.price}</p> */}
         <form onSubmit={handleSubmit}>
+          <h1>Payment</h1>
+          <span>Your card details</span>
           <CardElement
             options={cardElementOpts}
             onChange={handleCardDetailsChange}
           />
           <label>
+            <span>Your email</span>
             <input
               name="email"
               type="email"

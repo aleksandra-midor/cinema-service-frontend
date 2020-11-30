@@ -1,3 +1,5 @@
+@import "../../styles/variables.scss";
+
 .success {
   text-align: center;
 
@@ -10,12 +12,14 @@
   }
 }
 
-.checkout-form {
+.CheckoutForm {
+  border: 1px solid;
+  padding: 2rem;
   width: 400px;
-  padding: 2em;
-  border-radius: 8px;
-  background-color: #fff;
-  box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.15);
+
+  span {
+    color: $text-color-default;
+  }
 
   p {
     text-align: center;
@@ -23,7 +27,7 @@
 
   label {
     min-width: 500px;
-    color: #6b7c93;
+    color: $text-color-default;
     font-weight: 300;
     letter-spacing: 0.025em;
   }
@@ -41,6 +45,7 @@
     outline: 0;
     border-radius: 4px;
     background: white;
+    width: 100%;
 
     &::placeholder {
       color: #aab7c4;
@@ -61,9 +66,8 @@
     justify-content: center;
     margin: 0 auto;
     text-decoration: none;
-    margin-top: 5%;
-    background-color: #008cdd;
-    border: 1px solid #008cdd;
+    background-color: #bf2a2a;
+    border: 1px solid #bf2a2a;
     font-size: 1em;
     font-weight: bold;
     color: white;
@@ -71,6 +75,7 @@
     padding: 0.5em 1em;
     width: 200px;
     transition: opacity 200ms;
+    margin-top: 3rem;
     cursor: pointer;
 
     &.success {

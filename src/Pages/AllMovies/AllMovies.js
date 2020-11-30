@@ -38,7 +38,7 @@ function AllMovies() {
             />
           </label>
           <Button className="Search_Clear" onClick={() => setSearch("")}>
-            Clear
+            <img src="/assets/icons/close.svg" alt="close logo" />
           </Button>
         </div>
       </header>

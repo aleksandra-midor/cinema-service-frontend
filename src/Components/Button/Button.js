@@ -23,6 +23,7 @@ const Button = ({
 
   return (
     <button
+      data-testid="button"
       disabled={disabled}
       type="button"
       onClick={onClick}

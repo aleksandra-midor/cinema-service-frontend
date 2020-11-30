@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import CheckoutForm from "../../../../Components/CheckoutForm/CheckoutForm";
-// import AppContext from "../../../../store/context";
+import "./Checkout.scss";
 
 const Checkout = (props) =>
   // { selectedProduct, history }
