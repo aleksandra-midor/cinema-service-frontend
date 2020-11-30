@@ -1,63 +1,69 @@
 @import "../../../../styles/variables.scss";
 
-.SelectSeatsStep_Container {
-  max-width: 600px;
-  padding: $padding-default;
-  margin: auto;
+.SelectSeatsStep {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-  .SelectSeatsStep_Screen {
-    width: 364px;
-    background: $text-color-default;
-    color: black;
-    margin-bottom: 2rem;
-    padding: 4px;
-    text-align: center;
+  .SelectSeatsStep_Container {
+    padding: $padding-default;
+    width: 430px;
+
+    .SelectSeatsStep_Screen {
+      margin-bottom: 4rem;
+      padding: 4px;
+      text-align: center;
+      margin-top: 3rem;
+      border-top: 3px solid white;
+    }
   }
-}
 
-.SeatSelector {
-  display: grid;
-  grid-gap: 1rem;
-  grid-template-columns: repeat(5, 60px);
-  grid-template-rows: repeat(5, 60px);
-  grid-auto-flow: row;
+  .SeatSelector {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(5, 60px);
+    grid-template-rows: repeat(5, 60px);
+    grid-auto-flow: row;
 
-  label.SeatSelector_Seat {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    z-index: 1;
-    cursor: pointer;
-    color: black;
-    font-size: 1.25rem;
-    font-weight: bold;
-
-    .SeatSelector_Chair {
-      position: absolute;
-      height: 100%;
+    label.SeatSelector_Seat {
       width: 100%;
-      background: gray;
-      z-index: -1;
-      border-radius: 50%;
-    }
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+      cursor: pointer;
+      font-size: 1.25rem;
+      font-weight: bold;
 
-    &:hover .SeatSelector_Chair {
-      // background: white;
-      opacity: 0.8;
-    }
-
-    input {
-      display: none;
-
-      &:checked ~ .SeatSelector_Chair {
-        background: green;
+      .SeatSelector_Chair {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        border: 2px solid white;
+        z-index: -1;
+        border-radius: 50%;
       }
-      &:disabled ~ .SeatSelector_Chair {
-        background: $color-primary;
-        cursor: not-allowed;
+
+      &:hover .SeatSelector_Chair {
+        // background: white;
+        opacity: 0.8;
+      }
+
+      input {
+        display: none;
+
+        &:checked ~ .SeatSelector_Chair {
+          border-color: rgb(95, 140, 5);
+          border-width: 4px;
+        }
+        &:disabled ~ .SeatSelector_Chair {
+          border-color: $color-primary;
+          border-width: 4px;
+          cursor: not-allowed;
+        }
       }
     }
   }

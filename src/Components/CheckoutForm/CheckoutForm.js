@@ -158,7 +158,9 @@ const CheckoutForm = (props) => {
           <span className="Message-error">checkoutError:{checkoutError}</span>
         ) : null}
       </div>
-      <Button onClick={() => props.handlePreviousStep()}>Back</Button>
+      <div className="BuyTicket_Buttons">
+        <Button onClick={() => props.handlePreviousStep()}>Back</Button>
+      </div>
     </>
   );
 };

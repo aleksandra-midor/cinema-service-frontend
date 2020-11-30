@@ -89,6 +89,9 @@ const SelectSeats = (props) => {
             );
           })}
         </ul>
+      </div>
+
+      <div className="BuyTicket_Buttons">
         <Button onClick={() => props.handlePreviousStep()}>
           {t("selectSeats:back")}
         </Button>
