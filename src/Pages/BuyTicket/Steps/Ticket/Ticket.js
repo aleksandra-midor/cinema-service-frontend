@@ -23,9 +23,9 @@ const Ticket = () => {
       <h3>{t("ticket:singlePrice")}</h3>
       <p>
         {state.selectedCinema.ticketPrice}
-        &nbsp;kr
+        &nbsp;SEK
       </p>
-      {ticket.seats ? (
+      {ticket.seats.length > 0 ? (
         <>
           <h3>
             {t("ticket:totalPrice")}
@@ -34,7 +34,10 @@ const Ticket = () => {
             &nbsp;
             {t("ticket:tickets")}
           </h3>
-          <p>{ticket.totalPrice}</p>
+          <p>
+            {ticket.totalPrice}
+            &nbsp;SEK
+          </p>
         </>
       ) : null}
     </section>

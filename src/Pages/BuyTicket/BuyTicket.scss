@@ -2,7 +2,7 @@
 
 .BuyTicketPage {
   display: flex;
-  height: 100%;
+  min-height: $content-height-min;
 
   & > section:first-child {
     flex: 1;

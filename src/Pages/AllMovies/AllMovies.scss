@@ -4,6 +4,7 @@
   max-width: $content-width-max;
   padding-top: $padding-default;
   margin: auto;
+  min-height: $content-height-min;
 
   .AllMovies_Header {
     display: flex;

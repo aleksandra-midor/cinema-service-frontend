@@ -146,15 +146,15 @@ function SingleMovie(props) {
           <section className="SingleMovie_Info">
             <p>{movieData.storyline[language]}</p>
 
-            <h2>{t("singleMovie:duration")}</h2>
+            <h3>{t("singleMovie:duration")}</h3>
             <p>{movieData.duration.replace("PT", "").replace("M", " min")}</p>
-            <h2>{t("singleMovie:originalTitle")}</h2>
+            <h3>{t("singleMovie:originalTitle")}</h3>
             <p>{movieData.originalTitle}</p>
-            <h2>{t("singleMovie:releseDate")}</h2>
+            <h3>{t("singleMovie:releseDate")}</h3>
             <p>{movieData.releaseDate}</p>
-            <h2>{t("singleMovie:actors")}</h2>
+            <h3>{t("singleMovie:actors")}</h3>
             <p>{movieData.actors.join(", ")}</p>
-            <h2>{t("singleMovie:imdbRating")}</h2>
+            <h3>{t("singleMovie:imdbRating")}</h3>
             <p>{movieData.imdbRating}</p>
 
             {repertoireRender()}

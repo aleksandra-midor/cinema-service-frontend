@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { useTranslation } from "react-i18next";
 import AppContext from "../../../../store/context";
+import "./ThankYou.scss";
 
 const ThankYou = () => {
   const { t } = useTranslation();
