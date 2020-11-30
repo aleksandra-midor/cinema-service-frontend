@@ -65,7 +65,20 @@ export const getTestStore = () => {
           movie.movieId === "the-silence-of-the-lambs_1991" ||
           movie.movieId === "the-green-mile_1999"
       ),
-      ticket: {},
+      ticket: {
+        seats: [1, 12, 2, 7, 8, 9],
+        movieId: "5f9ec9f5b0286024eceb5cd8",
+        movieTitle: "Pulp Fiction",
+        date: "2020-11-16",
+        hour: "16:30",
+        cinemaId: "5fa2c884539a6449d84da4e1",
+        cinemaName: "Stockholm Paradiso",
+        language: "pl",
+        totalPrice: 400,
+        customerEmail: "ola_midor@outlook.com",
+        paymentId: "pi_1HnmjkEiHRoAiJESSZj5Vzhj",
+        paymentStatus: "confirmed",
+      },
     },
   };
 };
