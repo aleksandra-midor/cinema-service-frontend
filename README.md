@@ -14,7 +14,7 @@
 
 ## Live Version
 
-[live version link](/)
+[cinemaparadiso.aleksandramidor.com](https://cinemaparadiso.aleksandramidor.com)
 
 ## Github repository
 
