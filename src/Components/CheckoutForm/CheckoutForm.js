@@ -21,7 +21,6 @@ const CheckoutForm = (props) => {
 
   const [isProcessing, setProcessingTo] = useState(false);
   const [checkoutError, setCheckoutError] = useState();
- 
   const [email, setEmail] = useState();
 
   const stripe = useStripe();
