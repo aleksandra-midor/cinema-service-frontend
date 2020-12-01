@@ -4,6 +4,7 @@
 import React, { useState, useContext } from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { navigate } from "@reach/router";
+import { useTranslation } from "react-i18next";
 
 import axios from "axios";
 import AppContext from "../../store/context";
@@ -14,15 +15,13 @@ const baseUrl = process.env.REACT_APP_BASE_URL;
 
 const CheckoutForm = (props) => {
   const { state, dispatch } = useContext(AppContext);
+  const { t } = useTranslation();
 
   if (!state.ticket.movieId) navigate("/");
 
-  // const [receiptUrl, setReceiptUrl] = useState("");
-
   const [isProcessing, setProcessingTo] = useState(false);
   const [checkoutError, setCheckoutError] = useState();
-  // const [paymentSucess, setPaymentSuccess] = useState(false);
-
+ 
   const [email, setEmail] = useState();
 
   const stripe = useStripe();
@@ -99,7 +98,6 @@ const CheckoutForm = (props) => {
       }
 
       setTicket(updatedTicket);
-      // setPaymentSuccess(true);
       props.handleNextStep();
     } catch (err) {
       setCheckoutError(err.message);
@@ -108,7 +106,6 @@ const CheckoutForm = (props) => {
 
   const cardElementOpts = {
     iconStyle: "solid",
-    // style: iframeStyles,
     hidePostalCode: true,
   };
 
@@ -127,16 +124,15 @@ const CheckoutForm = (props) => {
   return (
     <>
       <div className="CheckoutForm">
-        {/* <p>Amount: ${selectedProduct.price}</p> */}
         <form onSubmit={handleSubmit}>
-          <h2>Payment</h2>
-          <span>Your card details</span>
+          <h2>{t("checkOut:payment")}</h2>
+          <span>{t("checkOut:cardDetails")}</span>
           <CardElement
             options={cardElementOpts}
             onChange={handleCardDetailsChange}
           />
           <label>
-            <span>Your email</span>
+            <span>{t("checkOut:email")}</span>
             <input
               name="email"
               type="email"
@@ -150,8 +146,8 @@ const CheckoutForm = (props) => {
             disabled={isProcessing || !stripe || !validateEmail()}
           >
             {isProcessing
-              ? "Processing..."
-              : `Pay SEK ${state.ticket.totalPrice}`}
+              ? `${t("checkOut:process")}`
+              : `${t("checkOut:pay")} ${state.ticket.totalPrice} SEK`}
           </button>
         </form>
         {checkoutError ? (
@@ -159,7 +155,9 @@ const CheckoutForm = (props) => {
         ) : null}
       </div>
       <div className="BuyTicket_Buttons">
-        <Button onClick={() => props.handlePreviousStep()}>Back</Button>
+        <Button onClick={() => props.handlePreviousStep()}>
+          {t("checkOut:back")}
+        </Button>
       </div>
     </>
   );

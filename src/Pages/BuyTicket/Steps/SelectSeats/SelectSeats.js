@@ -10,7 +10,6 @@ const baseUrl = process.env.REACT_APP_BASE_URL;
 
 const SelectSeats = (props) => {
   const { state, dispatch } = useContext(AppContext);
-  // const [selectedSeats, setSelectedSeats] = useState([]);
   const [unavailableSeats, setUnavailableSeats] = useState([]);
   const { t } = useTranslation();
 
@@ -66,7 +65,7 @@ const SelectSeats = (props) => {
       <div className="SelectSeatsStep_Container">
         <h2>{t("selectSeats:selectSeats")}</h2>
 
-        <div className="SelectSeatsStep_Screen">Screen</div>
+        <div className="SelectSeatsStep_Screen">{t("selectSeats:screen")}</div>
         <ul className="SeatSelector">
           {allSeats.map((seat) => {
             return (

@@ -19,6 +19,8 @@ import ticketSv from "../Pages/BuyTicket/Steps/Ticket/i18n/Sv.json";
 import ticketPl from "../Pages/BuyTicket/Steps/Ticket/i18n/Pl.json";
 import selectSeatsSv from "../Pages/BuyTicket/Steps/SelectSeats/i18n/Sv.json";
 import selectSeatsPl from "../Pages/BuyTicket/Steps/SelectSeats/i18n/Pl.json";
+import checkOutSv from "../Components/CheckoutForm/i18n/Sv.json";
+import checkOutPl from "../Components/CheckoutForm/i18n/Pl.json";
 
 const resources = {
   sv: {
@@ -31,6 +33,7 @@ const resources = {
     thankYou: thankYouSv,
     ticket: ticketSv,
     selectSeats: selectSeatsSv,
+    checkOut: checkOutSv,
   },
   pl: {
     allMovies: allMoviesPl,
@@ -42,6 +45,7 @@ const resources = {
     thankYou: thankYouPl,
     ticket: ticketPl,
     selectSeats: selectSeatsPl,
+    checkOut: checkOutPl,
   },
 };
 
