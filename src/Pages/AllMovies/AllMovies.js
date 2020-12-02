@@ -1,17 +1,15 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useContext, useState } from "react";
 import { Link } from "@reach/router";
-import { useTranslation } from "react-i18next";
+import { useTranslation, language } from "react-i18next";
 import Image from "../../Components/Image/Image";
 import "./AllMovies.scss";
-import i18n from "../../i18n/i18n";
 import AppContext from "../../store/context";
 import Button from "../../Components/Button/Button";
 
 function AllMovies() {
   const { t } = useTranslation();
   const { state } = useContext(AppContext);
-  const { language } = i18n;
 
   const [search, setSearch] = useState("");
 
@@ -24,7 +22,7 @@ function AllMovies() {
   );
 
   return (
-    <main className="AllMovies">
+    <main className="AllMovies" data-testid="AllMovies">
       <header className="AllMovies_Header">
         <h1>{t("allMovies:allMovies")}</h1>
 
