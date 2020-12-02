@@ -1,8 +1,12 @@
 import React from "react";
-import { render, act, waitFor, getByTestId } from "@testing-library/react";
-import axiosMock from "axios";
+import { render, act, waitFor } from "@testing-library/react";
 import { WithProvider } from "../../../../../mockTestData/WithProvider";
 import ThankYou from "../ThankYou";
+
+// From https://github.com/i18next/react-i18next/issues/876
+jest.mock("react-i18next", () => ({
+  useTranslation: () => ({ t: (key) => key }),
+}));
 
 async function renderWrapper() {
   let component;
@@ -17,9 +21,9 @@ async function renderWrapper() {
   return component;
 }
 
-describe.only("ThankYou page testing", () => {
+describe("ThankYou page testing", () => {
   beforeEach(() => {
-
+    
   });
 
   test("ThankYou page renders", async () => {
