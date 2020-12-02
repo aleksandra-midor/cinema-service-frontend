@@ -1,7 +1,5 @@
-import React, {
-  useContext,
-  // useEffect, useState
-} from "react";
+/* eslint-disable no-unused-vars */
+import React, { useContext, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import MovieSlider from "../../Components/MovieSlider/MovieSlider";
 import AppContext from "../../store/context";
@@ -9,8 +7,10 @@ import "./MainPage.scss";
 
 function MainPage() {
   const { state } = useContext(AppContext);
-  // const { selectedCinema } = state;
+  const { selectedCinema, movies } = state;
   const { t } = useTranslation();
+
+  const [todayMovies, setTodayMovies] = useState([]);
 
   const handleSortByRating = () => {
     const sortedMovies = [...state.selectedMovies];
@@ -21,28 +21,28 @@ function MainPage() {
       .reverse();
   };
 
-  // const tempDay = new Date();
-  // const today = tempDay.toISOString().slice(0, 10);
-  // console.log("daaaaaaaaaaaaaaaaaaaaaaaaaaay", today);
-
-  // const [todayMovies, setTodayMovies] = useState();
-
-  // useEffect(() => {
-  //   if (selectedCinema) {
-  //     const foundMovies = selectedCinema.repertoire.filter((movie) => {
-  //       console.log(movie);
-  //       const foundDate = movie.seance.find((el) => el.date === today
-  //     })
-  //     }
-  //     });
-  //       return foundDate;
-  //     });
-
-  //     setTodayMovies(foundMovies);
-  //   }
-  // }, [selectedCinema, today]);
-
-  // console.log(todayMovies);
+  useEffect(() => {
+    if (selectedCinema) {
+      const tempDay = new Date();
+      const today = tempDay.toISOString().slice(0, 10);
+      const todayRepertoire = selectedCinema.repertoire.filter((movie) => {
+        const foundDate = movie.seance.find((el) => {
+          return el.date === today && el.hours.length > 0;
+        });
+        return foundDate;
+      });
+      const foundMovies = movies.filter((film) => {
+        const foundFilm = todayRepertoire.find(
+          (el) => el.movieId === film.movieId
+        );
+        if (foundFilm) {
+          return true;
+        }
+        return false;
+      });
+      setTodayMovies(foundMovies);
+    }
+  }, [selectedCinema, movies]);
 
   return (
     <main className="MainPage" data-testid="MainPage">
@@ -54,15 +54,15 @@ function MainPage() {
       <MovieSlider
         sliderTitle={t("mainPage:topRated")}
         size="medium"
-        count={11}
+        count={6}
         movies={handleSortByRating()}
       />
       <header className="MainPage_Header" />
       <MovieSlider
         sliderTitle={t("mainPage:nearFuture")}
         size="medium"
-        count={5}
-        movies={handleSortByRating()}
+        count={12}
+        movies={todayMovies}
       />
     </main>
   );

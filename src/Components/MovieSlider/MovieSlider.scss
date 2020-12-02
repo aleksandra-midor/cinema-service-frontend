@@ -58,5 +58,17 @@
         }
       }
     }
+
+    &.MovieSlider-medium {
+      height: unset;
+
+      .MovieSlider_List {
+        flex-wrap: wrap;
+
+        .MovieSlider_Image {
+          max-width: 40%;
+        }
+      }
+    }
   }
 }
