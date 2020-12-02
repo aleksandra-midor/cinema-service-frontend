@@ -94,11 +94,10 @@ function CinemaSelection() {
   const displayCinemas = cinemas.map((el) => {
     return (
       // eslint-disable-next-line jsx-a11y/label-has-associated-control
-      <label key={el._id} className="CinemaSelection_Input">
+      <label key={el.name} className="CinemaSelection_Input">
         <input
           type="radio"
           name="cinema"
-          key={el.name}
           onChange={() => setModalCinemaId(el._id)}
           checked={modalCinemaId === el._id}
         />
@@ -107,7 +106,7 @@ function CinemaSelection() {
     );
   });
   return (
-    <div>
+    <div data-testid="CinemaSelection">
       <Modal
         visible={modalVisible}
         onClickOk={handleCinemaSelection}
