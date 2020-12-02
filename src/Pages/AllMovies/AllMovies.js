@@ -1,7 +1,8 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useContext, useState } from "react";
 import { Link } from "@reach/router";
-import { useTranslation, language } from "react-i18next";
+import { useTranslation, getI18n } from "react-i18next";
+// import i18n, { languages, fallbackLng } from "../../i18n/i18n";
 import Image from "../../Components/Image/Image";
 import "./AllMovies.scss";
 import AppContext from "../../store/context";
@@ -10,7 +11,7 @@ import Button from "../../Components/Button/Button";
 function AllMovies() {
   const { t } = useTranslation();
   const { state } = useContext(AppContext);
-
+  const { language } = getI18n();
   const [search, setSearch] = useState("");
 
   const handleSearch = (event) => {

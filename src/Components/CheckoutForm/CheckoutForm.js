@@ -122,7 +122,7 @@ const CheckoutForm = (props) => {
 
   return (
     <>
-      <div className="CheckoutForm">
+      <div className="CheckoutForm" data-testid="CheckoutForm">
         <form onSubmit={handleSubmit}>
           <h2>{t("checkOut:payment")}</h2>
           <span>{t("checkOut:cardDetails")}</span>

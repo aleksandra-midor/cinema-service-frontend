@@ -6,7 +6,7 @@ import AllMovies from "../AllMovies";
 // From https://github.com/i18next/react-i18next/issues/876
 jest.mock("react-i18next", () => ({
   useTranslation: () => ({ t: (key) => key }),
-  language: 'sv'
+  getI18n: ()=> {return {language: 'sv'}}
 }));
 
 async function renderWrapper() {
