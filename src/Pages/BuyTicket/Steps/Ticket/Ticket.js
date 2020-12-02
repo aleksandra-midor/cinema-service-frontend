@@ -10,7 +10,7 @@ const Ticket = () => {
   const { t } = useTranslation();
 
   return (
-    <section className="Ticket">
+    <section className="Ticket" data-testid="Ticket">
       <h1>{t("ticket:yourTicket")}</h1>
       <h3>{t("ticket:movie")}</h3>
       <p>{ticket.movieTitle}</p>

@@ -1,6 +1,7 @@
 import React from "react";
 import { render, act, waitFor } from "@testing-library/react";
 import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
 import { WithProvider } from "../../../mockTestData/WithProvider";
 import CheckoutForm from "../CheckoutForm";
 
@@ -11,6 +12,9 @@ jest.mock("react-i18next", () => ({
     return { language: "sv" };
   },
 }));
+
+const stripeKey = process.env.REACT_APP_STRIPE_KEY;
+const stripePromise = loadStripe(stripeKey);
 
 async function renderWrapper() {
   let component;
